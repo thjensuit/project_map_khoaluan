@@ -1,0 +1,1 @@
+<h3>Bạn chưa chọn dữ liệu đầu vào, <a href ="http://localhost/khoaluan/aqi/dashboard-aqi.php?username=<?php echo $tentaikhoan ?>&active=dulieudauvao">Quay lại trang tính toán!</a></h3>

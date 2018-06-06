@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	<meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Thái Sơn</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS     -->
+   
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
+
+    <!-- style myproject -->
+   
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+    <style type="text/css">
+        .navbar .navbar-brand {
+  font-weight: 600;
+  margin: 5px 0px;
+  padding: 15px 50px;
+  font-size: 20px;
+color: red;
+}
+.navbar{
+   
+}
+.cbox {
+color: red;
+}
+
+/*history*/
+
+    </style>
+</head>
+
+<body>
+<div>
+ <table id="form-aqi" class="table table-bordered table-striped" style="height: 250px;">
+                        <thead>
+                              <tr class="warning">
+                                    <th>TenTram</th>
+                                    <th>X</th>
+                                    <th>Y</th>
+                                    <th>SO2</th>
+                                    <th>CO</th>
+                                    <th>NO2</th>
+                                    <th>O3</th>
+                                    <th>TSP</th>
+                                    <th>PM10</th>
+                                    <th>PM2.5</th>
+                                    <th>Pb</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                        </tr>
+                        <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                        </tr>
+                        <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                        </tr>
+                        <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                        </tr>   
+                        </tbody>
+                  </table> 
+                 </div>
+                 <div style="text-align: center; margin-bottom: 20px">
+                 	<button class="btn btn-primary" id="btn_downloadform">Download form</button>
+                 </div>
+
+                 <script type="text/javascript" src="js/jquery.table2excel.js"></script>
+
+                <script type="text/javascript">	
+						$("#btn_downloadform").click(function(){
+							$("#form-aqi").table2excel({
+								exclude: ".noExl",
+								name: "Excel Document Name",
+								filename: "WQI",
+								fileext: ".xls"
+							});
+
+						});
+					</script>   
+</body>
+</html>
