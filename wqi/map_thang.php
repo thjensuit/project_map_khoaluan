@@ -18,7 +18,7 @@
 			$tentram1  = str_replace(" ","-",$row['tentram']);
 			$mau = '';
 
-			$link = "http://localhost/khoaluan/wqi/map-dulieu-thang.php?filename=$filename&thoigian=$thoigian&tentram=$tentram1";
+			$link = "http://khoa-luan.local/wqi/map-dulieu-thang.php?filename=$filename&thoigian=$thoigian&tentram=$tentram1";
 			if($wqi >=0 && $wqi <= 25){
 				$mucdo = "Nước ô nhiễm nặng, cần các biện pháp xử lý trong tương lai";
 				$mau = "#ff0000";
@@ -35,7 +35,7 @@
 			}else{
 				$mucdo = "Sử dụng tốt cho mục đích cấp nước sinh hoạt";
 				$mau = "#0000ff";
-			}					
+			}
 			echo "
 			{
 				type: 'Feature',

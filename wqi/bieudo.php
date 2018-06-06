@@ -1,4 +1,4 @@
-<?php 
+<?php
          if(isset($_GET['filename'])){
                $filename = $_GET['filename'];
                $filename_thang = $_GET['filename']."_thang";
@@ -8,7 +8,7 @@
 <div class="header">
     <form method="post">
          <?php
-         $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+         $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
           ?>
         <div class="row">
             <div class="col-md-4 col-md-offset-2"><h5><b>Thời Gian</b></h5></div>
@@ -26,7 +26,7 @@
                             <option value="<?php echo $row[0]; ?>"><?php echo "Ngày $row[0]"; ?></option>
                             <?php
                         }
-                    } 
+                    }
                     ?>
                 </select>
             </div> <!-- ngay -->
@@ -43,7 +43,7 @@
                         <option value="<?php echo $row[0]; ?>"><?php echo "Tháng $row[0]"; ?></option>
                         <?php
                      }
-                        } 
+                        }
                          ?>
                     </select>
             </div> <!-- thang -->
@@ -60,11 +60,11 @@
                   <option value="<?php echo $row[0]; ?>"><?php echo "Năm $row[0]"; ?></option>
                   <?php
                      }
-                  } 
+                  }
                    ?>
                </select>
             </div> <!-- nam -->
-             
+
              <div class="col-md-2 col-md-offset-1">
                <select class="form-control" id="sel1" name="tentram_option">
                   <option selected value="chontram" style="">-Tên trạm-</option>
@@ -77,7 +77,7 @@
                   <option value="<?php echo $row[0]; ?>"><?php echo "Trạm $row[0]"; ?></option>
                   <?php
                      }
-                  } 
+                  }
                    ?>
                </select>
             </div>
@@ -88,14 +88,14 @@
     </form>
 </div>
 <div style="padding-right: 10px; height: 500px">
-   
+
    <?php
    if(isset($_POST['xembieudo'])){
       $ngay = $_POST['ngay_option'];
       $thang = $_POST['thang_option'];
       $nam = $_POST['nam_option'];
       $tentram = $_POST['tentram_option'];
-      
+
       if($ngay<=10){
         $ngay1 ="0".$_POST['ngay_option'];
       }else{
@@ -106,7 +106,7 @@
       }
       $date =$nam."/".$thang1."/".$ngay1;
       $thang_tb = $nam."/".$thang1;
-      
+
       if($ngay!='chonngay' && $thang !='chonthang'&& $nam != 'chonnam' &&$tentram =='chontram'){
         require("bieudo_ngay.php");
       }elseif ($ngay!='chonngay' && $thang !='chonthang'&& $nam != 'chonnam' &&$tentram !='chontram') {
@@ -117,7 +117,7 @@
       }elseif($ngay=='chonngay' &&$thang =='chonthang'&& $nam == 'chonnam' &&$tentram =='chontram'){
       ?>
         <script type="text/javascript">
-           alert("Bạn chưa chọn thời gian hoặc tên trạm"); 
+           alert("Bạn chưa chọn thời gian hoặc tên trạm");
         </script>
       <?php
       }elseif($ngay=='chonngay' &&$thang !='chonthang'&& $nam != 'chonnam' &&$tentram !='chontram') {
@@ -126,17 +126,17 @@
       else{
         ?>
           <script type="text/javascript">
-           alert("Không tìm thấy kết quả"); 
+           alert("Không tìm thấy kết quả");
         </script>
 
-        <?php      
+        <?php
       }
 
-      
-     
-      
+
+
+
    }
-      
+
     ?>
 </div>
 </div>

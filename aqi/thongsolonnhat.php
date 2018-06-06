@@ -17,13 +17,13 @@
 		</tr>
 		<tr>
 			<?php
-		$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison"); 
+		$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 		$select_thogso = "SELECT * from aqi_hcm_thang3_2014";
 		$result_select_thogso = pg_query($conn,"$select_thogso");
 		if($result_select_thogso==true){
 			$leng =-1;
 			while($row = pg_fetch_array($result_select_thogso)){
-			 	
+
 				$max[] ='';
 				$tenthongso_max='';
 				$tenthongso_max_so2='';
@@ -65,10 +65,10 @@
 		}
 	 ?>
 	</table>
-<?php 
-		
+<?php
+
 		echo "$leng";
  ?>
-	
+
 </body>
 </html>

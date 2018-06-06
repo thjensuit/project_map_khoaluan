@@ -1,6 +1,6 @@
 <div class="card" style="height:500px">
 	<div class="header">
-		<form action="" method="POST" role="form" enctype="multipart/form-data"> 
+		<form action="" method="POST" role="form" enctype="multipart/form-data">
 			<input type="file" name="excelfile"><br><input class="btn btn-primary" type="submit" value="Thêm mới dữ liệu" name="btn-import">
 		</form>
 		<div class="tieude" style="text-align: center;" >
@@ -12,7 +12,7 @@
     if(isset($_GET['username'])){
     $tentaikhoan = $_GET['username'];
     }
-	$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison"); 
+	$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 	$name[0]="";
 	if (isset($_POST['btn-import'])) {
 		if (!empty($_FILES["excelfile"]["name"])) {
@@ -142,7 +142,7 @@
 				}else{
 					echo "khong thanh cong";
 				}
-        
+
 			}
 		}
     } //->end import
@@ -164,7 +164,7 @@
     				if($count_rows_tenfile==0){
     					?>
     					<tr><td colspan="3" style="text-align: center;"><h4>Không có file lưu trữ...</h4></td></tr>
-    					<?php 
+    					<?php
     				}else{
     					while($row = pg_fetch_array($result_tenfile)) {
     						?>
@@ -172,24 +172,24 @@
     							<tr>
     								<td> <a style="color:#0000cc" href="dashboard.php?username=<?php echo $tentaikhoan ?>&active=dulieuuser&&filename=<?php echo $row[2];?>" > <?php  echo $row[2];?></a></td>
     								<td><?php echo $row[3]; ?></td>
-                    <td><a href="http://localhost/khoaluan/wqi/wqi-history-xoa.php?username=<?php echo $tentaikhoan ?>&tenfile=<?php echo $row[2] ?>" class="btn" style="color:white;background: red; margin-left:20px">Xóa</a></td>   
+                    <td><a href="http://khoa-luan.local/wqi/wqi-history-xoa.php?username=<?php echo $tentaikhoan ?>&tenfile=<?php echo $row[2] ?>" class="btn" style="color:white;background: red; margin-left:20px">Xóa</a></td>
     							</tr>
     						</tbody>
     						<?php
     					}
               ?>
               <?php
-    				} 
+    				}
     			} ?>
     		</thead>
     	</table>
     </div><!-- End tbl-history -->
 
     <div>
-    	
+
     </div> <!-- tinhtoanwqi theo ngay -->
 
     <div>
-     
+
     </div> <!-- tinh toan wqi theo thang -->
 </div>

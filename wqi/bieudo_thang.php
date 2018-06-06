@@ -1,6 +1,6 @@
 
     <?php
-        $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+        $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
         $select_data= "SELECT * from $filename_thang where thoigian = '$thang_tb'";
         $result_data = pg_query($conn, "$select_data");
         $count_rows_tenfile = pg_num_rows($result_data);
@@ -54,16 +54,16 @@
             </div>
 
         </div>
-     <?php 
-        } 
+     <?php
+        }
      ?>
 
      <script type="text/javascript">
-    $(function () {    
+    $(function () {
     var defaultTitle = "Biểu đồ WQI các trạm quan trắc TP.HCM tháng <?php echo "$thang_tb"; ?> ";
     var drilldownTitle = "Biểu đồ WQI thông số trạm ";
     var drilldownTitle_thoigian ="<?php echo " $thang_tb"; ?>";
-    
+
     // Create the chart
     var chart = new Highcharts.Chart({
         chart: {
@@ -114,7 +114,7 @@
         series: [{
         name: 'Trạm',
         colorByPoint: true,
-        data: [<?php  
+        data: [<?php
         $select_data= "SELECT * from $filename_thang where thoigian = '$thang_tb'";
         $result = pg_query($conn,"$select_data");
         if ($result == true){
@@ -140,15 +140,15 @@
                     ";
             }
         }
-        ?>] 
+        ?>]
     }],
          drilldown: {
            title: {
         text: 'Biểu đồ WQI thông sôtp.HCM',
         },
         series: [
-        <?php 
-         $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+        <?php
+         $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
         $select_data= "SELECT * from $filename_thang where thoigian = '$thang_tb'";
         $result = pg_query($conn,"$select_data");
        if ($result == true){
@@ -168,13 +168,13 @@
                  ['WQI_Coliform',$row[22]],
                  ['WQI_Doduc',$row[23]]
                  ]
-                 
+
             },";
         }
     }else{
             echo "khong thanh cong";
         }
-     ?>   
+     ?>
         ]
     }
     })

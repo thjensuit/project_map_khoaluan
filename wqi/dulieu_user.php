@@ -1,7 +1,7 @@
 
 <div class="card">
 	<?php
-	
+
 	if(isset($_GET['filename'])){
 		$filename = $_GET['filename'];
 		?>
@@ -33,24 +33,24 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php 
-					$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+					<?php
+					$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 					$select_data= "SELECT * from $filename";
 					$result = pg_query($conn,"$select_data");
 					if ($result == true){
-						while($row = pg_fetch_array($result)){		
+						while($row = pg_fetch_array($result)){
 							?>
 							<tr>
-								<td><?php echo $row['tentram']?></td>	
-								<td><?php echo $row['x']?></td>	
-								<td><?php echo $row['y']?></td>	
+								<td><?php echo $row['tentram']?></td>
+								<td><?php echo $row['x']?></td>
+								<td><?php echo $row['y']?></td>
 								<td><?php echo $row['thoigian']?></td>
-								<td><?php echo $row['nhietdo']?></td>	
-								<td><?php echo $row['bod']?></td>	
-								<td><?php echo $row['cod']?></td>	
-								<td><?php echo $row['n']?></td>		
+								<td><?php echo $row['nhietdo']?></td>
+								<td><?php echo $row['bod']?></td>
+								<td><?php echo $row['cod']?></td>
+								<td><?php echo $row['n']?></td>
 								<td><?php echo $row['p']?></td>
-								<td><?php echo $row['tss']?></td>	
+								<td><?php echo $row['tss']?></td>
 								<td><?php echo $row['d0']?></td>
 								<td><?php echo $row['ph']?></td>
 								<td><?php echo $row['coliform']?></td>
@@ -61,11 +61,11 @@
 						} ?>
 					</tbody>
 
-					<?php   
+					<?php
 				}
 			}
 			?>
-						
+
 		</table>
 	</div>
 </div>

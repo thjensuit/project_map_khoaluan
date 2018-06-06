@@ -7,13 +7,13 @@
 
 
 <script type="text/javascript">
-            $(function () {    
-    var defaultTitle = "Biểu đồ AQI giờ trạm " ; 
+            $(function () {
+    var defaultTitle = "Biểu đồ AQI giờ trạm " ;
     var drilldownTitle = "Biểu đồ AQI thông số trạm";
     // Create the chart
     var chart = new Highcharts.Chart({
         chart: {
-            
+
             renderTo: 'container',
             events: {
                 drilldown: function(e) {
@@ -59,8 +59,8 @@
         series: [{
             color : 'red',
             data: [<?php
-            $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-            $select_databieudo = "SELECT * FROM $filename WHERE tentram = '$tentram'and  to_char(\"thoigian\",'yyyy/mm') ='2017/02'" ; 
+            $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+            $select_databieudo = "SELECT * FROM $filename WHERE tentram = '$tentram'and  to_char(\"thoigian\",'yyyy/mm') ='2017/02'" ;
             $result = pg_query($conn,"$select_databieudo");
             if($result==true){
                 while($row = pg_fetch_array($result)){
@@ -88,8 +88,8 @@
                     text: 'Biểu đồ AQI thông sôtp.HCM',
                 },
                 series: [
-                <?php 
-                $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+                <?php
+                $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
                 $select_data= "SELECT * FROM $filename WHERE tentram = '$tentram'and  to_char(\"thoigian\",'yyyy/mm') ='2017/02'";
                 $result = pg_query($conn,"$select_data");
                 if ($result == true){
@@ -110,8 +110,8 @@
                 }else{
                     echo "khong thanh cong";
                 }
-                ?>   
-                ]   
+                ?>
+                ]
             }
 
         })

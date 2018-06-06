@@ -6,7 +6,7 @@
  ?>
 <div class="card" style="height: 500px">
 	<div class="header">
-		<form action="" method="POST" role="form" enctype="multipart/form-data"> 
+		<form action="" method="POST" role="form" enctype="multipart/form-data">
 			<input type="file" name="excelfile"><br><input class="btn btn-primary" type="submit" value="Thêm mới dữ liệu" name="btn-import">
 		</form>
 		<div class="tieude" style="text-align: center;" >
@@ -20,7 +20,7 @@
     $tentaikhoan = $_GET['username'];
   	}
 
-		$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison"); 
+		$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 		$name[0]="";
 		if (isset($_POST['btn-import'])) {
 			if (!empty($_FILES["excelfile"]["name"])) {
@@ -85,8 +85,8 @@
 
 
 								$tbl_aqi = pg_query($conn,"$create_tblaqi");
-								$tbl_aqi_ngay = pg_query($conn,"$create_tblaqi_ngay");	
-								
+								$tbl_aqi_ngay = pg_query($conn,"$create_tblaqi_ngay");
+
 
 								if($tbl_aqi == true && $tbl_aqi_ngay==true){
 									$file = $_FILES["excelfile"]["tmp_name"];
@@ -127,7 +127,7 @@
 												$aqi_h_so2= round($so2*10/35 , 0, PHP_ROUND_HALF_UP);
 												$arr_h_so2[] = $aqi_h_so2;
 											}else{
-												$aqi_h_so2 = -1; 
+												$aqi_h_so2 = -1;
 												$arr_h_so2[] = $aqi_h_so2;
 											}//-> end so2
 
@@ -135,7 +135,7 @@
 												$aqi_h_co= round($co/300 , 0, PHP_ROUND_HALF_UP);
 												$arr_h_co[] = $aqi_h_co;
 											}else{
-												$aqi_h_co = -1; 
+												$aqi_h_co = -1;
 												$arr_h_co[] = $aqi_h_co;
 											}//-> end co
 
@@ -144,7 +144,7 @@
 												$arr_h_no2[] = $aqi_h_no2;
 											}else{
 												$aqi_h_no2= -1;
-												$arr_h_no2[]= $aqi_h_no2; 
+												$arr_h_no2[]= $aqi_h_no2;
 											}//-> no2
 
 											if($o3!=-1){
@@ -163,7 +163,7 @@
 												$arr_h_tsp[] = $aqi_h_tsp;
 											}//->end tsp
 
-										
+
 
 											$arr_h_pm10[] = -1;
 
@@ -180,32 +180,32 @@
 											if($aqi_h_tram == $aqi_h_so2){
 												$thongso_h_max ="SO2";
 												$arr_thongso_h_max[]= $thongso_h_max;
-												
+
 											}elseif($aqi_h_tram == $aqi_h_no2){
 												$thongso_h_max ="NO2";
 												$arr_thongso_h_max[]= $thongso_h_max;
-												
+
 											}elseif($aqi_h_tram == $aqi_h_co){
 												$thongso_h_max ="CO";
 												$arr_thongso_h_max[]= $thongso_h_max;
-												
+
 											}elseif($aqi_h_tram == $aqi_h_o3){
 												$thongso_h_max ="O3";
 												$arr_thongso_h_max[]= $thongso_h_max;
-											
+
 											}else{
 												$thongso_h_max ="TSP";
 												$arr_thongso_h_max[]= $thongso_h_max;
-											}	
+											}
 
 										}else{
 											$thongso_h_max ="(Trống)";
 											$arr_thongso_h_max[]= $thongso_h_max;
 										}
-								
+
 											}//-> end tinh toan aqi gio
-							
-										} 
+
+										}
 									} //-> end while
 
 									$arrlength = count($arr_h_tsp);
@@ -214,7 +214,7 @@
 										where id = $id[$x]";
 									pg_query($conn,"$update_aqi_h");
 
-									}; //->update aqi thongso	
+									}; //->update aqi thongso
 
 									//-> aqi_ngay
 
@@ -228,7 +228,7 @@
 										$thoigian_ngay = $row[3];
 										$arr_thoigian_ngay[] =$thoigian_ngay;
 										$toadox[] = $row[1];
-										$toadoy[] = $row[2]; 
+										$toadoy[] = $row[2];
 										}
 										$arrlength_ngay = count($arr_thoigian_ngay);
 
@@ -237,7 +237,7 @@
 										pg_query($conn,"$insert_aqi_ngay");
 										}
 									}//-> table aqi ngay
-									
+
 									$selectdata_ngay = "SELECT tentram,thoigian from $name[0]_ngay";
 									$result_selectdata_ngay = pg_query($conn,"$selectdata_ngay");
 									if($result_selectdata_ngay== true){
@@ -387,7 +387,7 @@
 										$tenthongso="";
 										if($arr_aqi_tram_ngay[$x] == $arr_aqi_so2_ngay[$x]){
 											$tenthongso= "SO2";
-											
+
 											$tenthongso_max[] = $tenthongso;
 										}
 
@@ -418,7 +418,7 @@
 
 										if($arr_aqi_tram_ngay[$x] == $arr_aqi_pm25_ngay[$x]){
 											$tenthongso= "PM25";
-											$tenthongso_max[] = $tenthongso; 
+											$tenthongso_max[] = $tenthongso;
 										}
 
 										if($arr_aqi_tram_ngay[$x] == $arr_aqi_pb_ngay[$x]){
@@ -428,7 +428,7 @@
 										}
 									} //-> tinh toan chi so aqi_ngay
 
-									
+
 									for($x = 0; $x < $sodong_ngay; $x++){
 										$update_aqi_h = "UPDATE $name[0]_ngay SET aqi_ngay_so2='$arr_aqi_so2_ngay[$x]',aqi_ngay_co='$arr_aqi_co_ngay[$x]',aqi_ngay_no2='$arr_aqi_no2_ngay[$x]',aqi_ngay_o3='$arr_aqi_o3_ngay[$x]',aqi_ngay_tsp='$arr_aqi_tsp_ngay[$x]',aqi_ngay_pm10='$arr_aqi_pm10_ngay[$x]',aqi_ngay_pm25='$arr_aqi_pm25_ngay[$x]',aqi_ngay_pb='$arr_aqi_pb_ngay[$x]',aqi_ngay_tram='$arr_aqi_tram_ngay[$x]',thongso_ngay_max='$tenthongso_max[$x]'
 											where id = $idi[$x] ";
@@ -444,7 +444,7 @@
 					}
 				}
 			}
-		} //-> end btnimport	
+		} //-> end btnimport
 	 ?>
 	 <div class="content table-responsive" style="background-color :white ">
 		<table class="table table-bordered" style="margin-top:15px" id="tbl-aqihistory">
@@ -463,7 +463,7 @@
 					if($count_rows_tenfile==0){
 						?>
 						<tr class="success"><td colspan="3" style="text-align: center;"><h4>Không có file lưu trữ...</h4></td></tr>
-						<?php 
+						<?php
 					}else{
 						while($row = pg_fetch_row($result_tenfile)) {
 							?>
@@ -471,14 +471,14 @@
 								<tr>
 									<td> <a style="color:#0000cc" href="dashboard-aqi.php?username=<?php echo $tentaikhoan ?>&active=dulieuuser&&filename=<?php echo $row[2];?>" > <?php  echo $row[2];?></a></td>
 									<td><?php echo $row[3]; ?></td>
-									<td><a href="http://localhost/khoaluan/aqi/aqi-history-xoa.php?username=<?php echo $tentaikhoan ?>&tenfile=<?php echo $row[2]; ?>" class="btn" style="color:white;background: red; margin-left:20px">Xóa</a></td>    
+									<td><a href="http://khoa-luan.local/aqi/aqi-history-xoa.php?username=<?php echo $tentaikhoan ?>&tenfile=<?php echo $row[2]; ?>" class="btn" style="color:white;background: red; margin-left:20px">Xóa</a></td>
 								</tr>
 							</tbody>
 							<?php
 						}
-					} 
+					}
 				} ?>
-			
+
 		</table>
 	</div><!-- End tbl-history -->
 </div> <!-- end -->

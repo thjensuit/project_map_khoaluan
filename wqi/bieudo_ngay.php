@@ -1,6 +1,6 @@
 
     <?php
-        $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+        $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
         $select_data= "SELECT * from $filename where thoigian = '$date' ";
         $result_data = pg_query($conn, "$select_data");
         $count_rows_tenfile = pg_num_rows($result_data);
@@ -15,7 +15,7 @@
             <div class="row" style="margin-top: 40px">
                 <div class="col-md-8" >
                     <div id="container" style=" height: 450px; margin: 0 auto"></div>
-                    
+
                 </div>
                 <div class="col-md-4">
                     <div class="col-md-8 col-md-offset-2">
@@ -61,10 +61,10 @@
      ?>
 
 <script type="text/javascript">
-    $(function () {    
+    $(function () {
     var defaultTitle = "Biểu đồ WQI các trạm quan trắc TP.HCM ngày <?php echo "$date" ?>";
     var drilldownTitle = "Biểu đồ WQI thông số trạm ";
-    
+
     // Create the chart
     var chart = new Highcharts.Chart({
         chart: {
@@ -115,7 +115,7 @@
         series: [{
         name: 'Trạm',
         colorByPoint: true,
-        data: [<?php  
+        data: [<?php
         $select_data= "SELECT * from $filename where thoigian = '$date'";
         $result = pg_query($conn,"$select_data");
         if ($result == true){
@@ -141,14 +141,14 @@
                     ";
             }
         }
-        ?>] 
+        ?>]
     }],
          drilldown: {
            title: {
         text: 'Biểu đồ WQI thông sô TP.HCM',
         },
         series: [
-        <?php 
+        <?php
         $select_data= "SELECT * from $filename where thoigian = '$date'";
         $result = pg_query($conn,"$select_data");
        if ($result == true){
@@ -168,16 +168,16 @@
                  ['WQI_Coliform',$row[22]],
                  ['WQI_Doduc',$row[23]]
                  ]
-                 
+
             },";
         }
     }else{
             echo "khong thanh cong";
         }
-     ?>   
+     ?>
         ]
     }
     })
 });
-    
+
     </script>

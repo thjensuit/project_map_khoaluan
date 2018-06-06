@@ -25,12 +25,12 @@
                     <td style="background-color:#f2f2f2" >51-100</td>
                     <td style="background-color:#ffff00">Trung bình</td>
                 </tr>
-                
+
                 <tr>
                     <td style="background-color:#f2f2f2">101-200</td>
                     <td style="background-color:#ffa31a " >Kém</td>
                 </tr>
-                
+
                 <tr>
                     <td style="background-color:#f2f2f2">201-300</td>
                     <td style="background-color:red">Xấu</td>
@@ -48,7 +48,7 @@
 
 
 <script type="text/javascript">
-        $(function () {    
+        $(function () {
             var defaultTitle = "Biểu đồ AQI các trạm quan trắc TP.HCM <?php echo $date ?>" ;
             var drilldownTitle = "Biểu đồ AQI thông số trạm ";
 
@@ -97,8 +97,8 @@
         series: [{
 
             data: [<?php
-            $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-            $select_databieudo = "SELECT * FROM $filename_ngay WHERE thoigian='$date'" ; 
+            $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+            $select_databieudo = "SELECT * FROM $filename_ngay WHERE thoigian='$date'" ;
             $result = pg_query($conn,"$select_databieudo");
             if($result==true){
                 while($row = pg_fetch_array($result)){
@@ -130,8 +130,8 @@
                     text: 'Biểu đồ AQI thông số tp.HCM',
                 },
                 series: [
-                <?php 
-                $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+                <?php
+                $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
                 $select_data= "SELECT * from $filename_ngay WHERE thoigian='$date'";
                 $result = pg_query($conn,"$select_data");
                 if ($result == true){
@@ -286,8 +286,8 @@
                 }else{
                     echo "khong thanh cong";
                 }
-                ?>   
-                ]   
+                ?>
+                ]
             }
 
         })

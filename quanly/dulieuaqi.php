@@ -16,8 +16,8 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
-						$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+						<?php
+						$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 						$select_data= "SELECT * from dulieufileaqi";
 						$result = pg_query($conn,"$select_data");
 						if ($result == true){
@@ -30,15 +30,15 @@
 									<td><?php echo $row['tentaikhoan'];?></td>
 									<td><?php echo $row['tenfile'];?></td>
 									<td><?php echo $row['thoigian'];?></td>
-									
+
 										<td>
-										<a class="btn btn-warning" style="color:white; margin-left: 50px" name="xoa" href="http://localhost/khoaluan/quanly/dulieuaqi-main.php?username=admin&tentaikhoan=<?php echo $row[1] ?>&tenfile=<?php echo $row[2] ?>"> Xóa</a>
-										
-										</td>	
-	
+										<a class="btn btn-warning" style="color:white; margin-left: 50px" name="xoa" href="http://khoa-luan.local/quanly/dulieuaqi-main.php?username=admin&tentaikhoan=<?php echo $row[1] ?>&tenfile=<?php echo $row[2] ?>"> Xóa</a>
+
+										</td>
+
 								</tr>
 								<?php
-							} 
+							}
 						}
 					?>
 

@@ -21,12 +21,12 @@
     </style>
 </head>
 <body>
-<?php 
+<?php
  $tentaikhoan = '';
   if(isset($_GET['username'])){
     $tentaikhoan = $_GET['username'];
   }
-	$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+	$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 	$date = "";
 	if(isset($_POST['ngay_option']) && isset($_POST['thang_option']) &&isset($_POST['nam_option']) ){
 		$ngay = $_POST['ngay_option'];
@@ -74,7 +74,7 @@
 					<tbody>
 						<?php
 						$select_data= "SELECT * FROM $filename_ngay where to_char(\"thoigian\", 'YYYY/MM/DD')='$date' and tentram ='$tentram' ";
-						$result = pg_query($conn,"$select_data"); 
+						$result = pg_query($conn,"$select_data");
 						if ($result == true){
 							$id =0;
 							while($row = pg_fetch_array($result)){
@@ -84,14 +84,14 @@
 							$mau ='';
 					 ?>
 					 	<tr>
-								
+
 								<td><?php echo $row['tentram']?></td>
 								<td><?php echo $row['x']?></td>
 								<td><?php echo $row['y']?></td>
 						</tr>
 					 <?php
 					 		}
-					 	} 
+					 	}
 					  ?>
 					</tbody>
 				</table>
@@ -117,7 +117,7 @@
 					<tbody>
 					<?php
 						$select_data= "SELECT * FROM $filename_h where to_char(\"thoigian\", 'YYYY/MM/DD')='$date' and tentram = '$tentram'";
-						$result = pg_query($conn,"$select_data"); 
+						$result = pg_query($conn,"$select_data");
 						if ($result == true){
 							while($row = pg_fetch_array($result)){
 							$mucanhhuong='';
@@ -125,20 +125,20 @@
 							$mau ='';
 					 ?>
 					 	<tr>
-								<td><?php echo $row['tentram']?></td>	
+								<td><?php echo $row['tentram']?></td>
 								<td><?php echo $row['thoigian']?></td>
-								<td><?php echo $row['aqi_h_so2']?></td>	
+								<td><?php echo $row['aqi_h_so2']?></td>
 								<td><?php echo $row['aqi_h_co']?></td>
 								<td><?php echo $row['aqi_h_no2']?></td>
 								<td><?php echo $row['aqi_h_o3']?></td>
 								<td><?php echo $row['aqi_h_tsp']?></td>
 								<td><?php echo $row['aqi_h_tram']?></td>
 								<td><?php echo $row['thongso_h_max']?></td>
-								
+
 							</tr>
 					 <?php
 					 		}
-					 	} 
+					 	}
 					  ?>
 					</tbody>
 				</table>
@@ -158,8 +158,8 @@
 						<th>Màu</th>
 					</thead>
 					<tbody>
-					<?php 
-					$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+					<?php
+					$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 					$select_data= "SELECT * FROM $filename_h where to_char(\"thoigian\", 'YYYY/MM/DD')='$date' and tentram = '$tentram'";
 					$result = pg_query($conn,"$select_data");
 					if ($result == true){
@@ -169,10 +169,10 @@
 							$mau ='';
 							?>
 							<tr>
-								<td><?php echo $row['tentram']?></td>	
-								<td><?php echo $row['thoigian']?></td>	
+								<td><?php echo $row['tentram']?></td>
+								<td><?php echo $row['thoigian']?></td>
 								<td><?php echo $row['aqi_h_tram']?></td>
-								<td><?php 
+								<td><?php
 									if($row['aqi_h_tram']>=0 && $row['aqi_h_tram']<=50){
 										echo"0-50";
 										$mucanhhuong='Không ảnh hưởng đến sức khỏe';
@@ -204,14 +204,14 @@
 								<td><?php echo $chatluong ?></td>
 								<td><?php echo "$mucanhhuong"; ?></td>
 								<td> <?php echo $mau ?></td>
-								
+
 							</tr>
 							<?php
 
 						} ?>
 					</tbody>
 
-					<?php   
+					<?php
 				}
 			?>
 				</table>
@@ -220,14 +220,14 @@
 		<div class="col-md-12">
 			<div id="container1" style="width: 900px; height: 320px; margin-left: 50px; margin-top: 40px"></div> <!-- bieudo -->
 			<script type="text/javascript">
-	$(function () {    
+	$(function () {
 		var defaultTitle = "Biểu đồ AQI giờ trạm <?php echo $tentram ?> ";
 		var drilldownTitle = "Biểu đồ AQI thông số trạm <?php echo $tentram.' ' ?>";
 
     // Create the chart
     var chart = new Highcharts.Chart({
     	chart: {
-    		
+
     		renderTo: 'container1',
     		events: {
     			drilldown: function(e) {
@@ -273,8 +273,8 @@
     	series: [{
     		color : '#d98cd9',
     		data: [<?php
-    		$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-    		$select_databieudo = "SELECT * FROM $filename_h where to_char(\"thoigian\", 'YYYY/MM/DD')='$date' and tentram = '$tentram'" ; 
+    		$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+    		$select_databieudo = "SELECT * FROM $filename_h where to_char(\"thoigian\", 'YYYY/MM/DD')='$date' and tentram = '$tentram'" ;
     		$result = pg_query($conn,"$select_databieudo");
     		if($result==true){
     			while($row = pg_fetch_array($result)){
@@ -301,10 +301,10 @@
     			?>]
     		}],
     		drilldown: {
-    			
+
     			series: [
-    			<?php 
-    			$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+    			<?php
+    			$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
     			$select_data= "SELECT * FROM $filename_h where to_char(\"thoigian\", 'YYYY/MM/DD')='$date' and tentram = '$tentram'";
     			$result = pg_query($conn,"$select_data");
     			if ($result == true){
@@ -357,20 +357,20 @@
     			}else{
     				echo "khong thanh cong";
     			}
-    			?>   
-    			]	
+    			?>
+    			]
     		}
 
     	})
 });
 </script>
 </div>
-			
+
 
 		</div>
 		<div class="col-md-6 col-md-offset-4">
 				<input type="button" id="print_button"   class="btn btn-success" value="Xuất báo cáo" onclick="window.print()" style="margin-bottom: 70px; margin-top: 70px; " />
-				<a href="http://localhost/khoaluan/aqi/baocao.php?username=<?php echo $tentaikhoan ?>&active=lapbaocao&&filename=<?php echo $filename_h ?>" class="btn btn-default" id="quaylai" style="margin-left:40px">Quay lại</a>
+				<a href="http://khoa-luan.local/aqi/baocao.php?username=<?php echo $tentaikhoan ?>&active=lapbaocao&&filename=<?php echo $filename_h ?>" class="btn btn-default" id="quaylai" style="margin-left:40px">Quay lại</a>
 			</div>
 	</div>
 

@@ -10,26 +10,26 @@
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
    <meta name="viewport" content="width=device-width" />
    <!-- Bootstrap core CSS     -->
-   
+
    <!--  Light Bootstrap Table core CSS    -->
    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   
 
-  
+
+
 
 
    <!-- js && css mapbox -->
  <script src='https://api.mapbox.com/mapbox.js/v3.1.0/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v3.1.0/mapbox.css' rel='stylesheet' />
-    
+
 
    <!--     Fonts and icons     -->
    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-   
+
    <style type="text/css">
    a:visited {
     color: green;
@@ -59,13 +59,13 @@
   }
 
 
-    
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
-   
+
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
 
@@ -114,7 +114,7 @@
                     <a href="dashboard.php?username=<?php echo $tentaikhoan ?>&active=dulieuaqi&&filename=<?php
                 if(isset($_GET['filename'])){
                     echo $_GET['filename'];
-            } 
+            }
             ?>">
                         <i class="pe-7s-note"></i>
                         <p>Dữ liệu AQI</p>
@@ -179,7 +179,7 @@
                           <?php echo "admin" ; ?> </span></h4>
                       </li>
                         <li>
-                            <a href="http://localhost/khoaluan/index.php" style="font-weight: 600">
+                            <a href="http://khoa-luan.local/index.php" style="font-weight: 600">
                                 Thoát
                             </a>
                         </li>
@@ -192,8 +192,8 @@
         <div class="content"  > <!-- begin content -->
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12"> 
-                        <?php 
+                    <div class="col-md-12">
+                        <?php
                         if(isset($_GET['active']))
                           {
                             if($_GET['active']=='thongtinnv'){
@@ -210,8 +210,8 @@
                             require("thongtinnv.php");
                           }
                         ?>
-                    </div> 
-                   
+                    </div>
+
                 </div>
             </div>
         </div> <!-- end content -->

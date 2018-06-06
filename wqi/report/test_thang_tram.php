@@ -36,7 +36,7 @@
 		if($ngay<=10){
 			$ngay1 ="0".$_POST['ngay_option'];
 		}else{
-         $ngay1 =$ngay;   
+         $ngay1 =$ngay;
         }
 		if($thang<=10){
 			$thang1 ="0".$_POST['thang_option'];
@@ -44,11 +44,11 @@
             $thang1 = $thang;
         }
 		$date=  $nam."/".$thang1."/".$ngay1;
-		
+
 		$thang_tb = $nam."/".$thang1;
 		echo "$thang_tb";
 	}
-	$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+	$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 	$filename ="";
 	if(isset($_GET['filename'])){
 		$filename = $_GET['filename'];
@@ -60,12 +60,12 @@
 			<div class="col-md-12" style="padding-left: 300px">
 				<h3><b><?php if(isset($_POST["tieude"])){echo $_POST["tieude"];} ?></b></h3>
 			</div> <!-- tieu de -->
-			
+
 			<div class="col-md-12">
                 <b><h4 style="margin-top:30px;margin-bottom:30px;">Người lập báo cáo :  <?php if(isset($_POST["ten"])){echo $_POST["ten"];} ?></b></h4>
                 <b><h4>Thời gian lập báo cáo : <?php if(isset($_POST["thoigian"])){echo $_POST["thoigian"];} ?></b></h4>
             </div><!-- thong tin nguoi lap bao cao -->
-			
+
 			<div class="col-md-12" style="margin-top: 50px; width: 500px">
                 <h4 style="margin-bottom:20px;">Thông tin trạm quan trắc</h4>
                        <table class="table table-bordered">
@@ -74,7 +74,7 @@
                                <th>Tọa độ </th>
                                <th>Tọa độ Y</th>
                            </tr>
-                           
+
                             <?php
                                 $select_data= "SELECT * from $filename where to_char(\"thoigian\",'yyyy/mm') ='$thang_tb' ";
                                 $result = pg_query($conn,"$select_data");
@@ -86,14 +86,14 @@
                                     <td><?php echo $row['x'] ?></td>
                                     <td><?php echo $row['y'] ?></td>
                                 <tr>
-                                <?php     
+                                <?php
                                     }
                                 }
                             ?>
-                               
+
                            </tr>
-                       </table><!-- Thong tin tram --> 
-                </div> 
+                       </table><!-- Thong tin tram -->
+                </div>
 
 			<div class="col-md-12" style="margin-top: 50px">
 				<h4 style="margin-bottom:20px;">Bảng kết quả tính toán WQI các trạm quan trắc ở TP.HCM</h4>
@@ -105,12 +105,12 @@
 								<th>WQI Trạm</th>
 								<th>WQI Tiêu Chuẩn</th>
 								<th>Mức đánh giá chất lượng nước</th>
-								<th>Màu quy định</th>					
+								<th>Màu quy định</th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php  
-						
+						<?php
+
 						$select_data= "SELECT * FROM $filename WHERE tentram = '$tentram'and  to_char(\"thoigian\",'yyyy/mm') ='$thang_tb'";
 						$result = pg_query($conn,"$select_data");
 						if ($result == true){
@@ -135,7 +135,7 @@
 								}else{
 									$mucdo = "Sử dụng tốt cho mục đích cấp nước sinh hoạt";
 									$mau = "Xanh nước biển";
-								}					
+								}
 
 								?>
 
@@ -158,7 +158,7 @@
 
 									<td><?php echo $mucdo ?></td>
 									<td><?php echo $mau ?></td>
-									<?php  
+									<?php
 								}
 							}
 							?>
@@ -170,13 +170,13 @@
 			<div id="container" style="width: 800px; height: 450px; margin-left: 120px; margin-top: 50px" class="col-md-12">
 			</div>
 			<script type="text/javascript">
-    $(function () {    
-    var defaultTitle = "Biểu đồ WQI trạm <?php echo $tentram.' '.$thang_tb?> " ; 
+    $(function () {
+    var defaultTitle = "Biểu đồ WQI trạm <?php echo $tentram.' '.$thang_tb?> " ;
     var drilldownTitle = "Biểu đồ WQI thông số trạm <?php echo $tentram?> ";
     // Create the chart
     var chart = new Highcharts.Chart({
         chart: {
-            
+
             renderTo: 'container',
             events: {
                 drilldown: function(e) {
@@ -222,7 +222,7 @@
         series: [{
             color : 'red',
             data: [<?php
-            $select_databieudo = "SELECT * FROM $filename WHERE tentram = '$tentram'and  to_char(\"thoigian\",'yyyy/mm') ='$thang_tb'" ; 
+            $select_databieudo = "SELECT * FROM $filename WHERE tentram = '$tentram'and  to_char(\"thoigian\",'yyyy/mm') ='$thang_tb'" ;
             $result = pg_query($conn,"$select_databieudo");
             if($result==true){
                 while($row = pg_fetch_array($result)){
@@ -250,8 +250,8 @@
                     text: 'Biểu đồ WQI thông số tp.HCM',
                 },
                 series: [
-                <?php 
-                $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+                <?php
+                $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
                 $select_data= "SELECT * FROM $filename WHERE tentram = '$tentram'and  to_char(\"thoigian\",'yyyy/mm') ='$thang_tb'";
                 $result = pg_query($conn,"$select_data");
                 if ($result == true){
@@ -279,8 +279,8 @@
                 }else{
                     echo "khong thanh cong";
                 }
-                ?>   
-                ]   
+                ?>
+                ]
             }
 
         })
@@ -288,11 +288,11 @@
         </script>
         	<div class="col-md-6 col-md-offset-4">
                 <input type="button" id="print_button"   class="btn btn-success" value="Xuất báo cáo" onclick="window.print()" style="margin-bottom: 70px; margin-top: 70px; " />
-                <a href="http://localhost/khoaluan/wqi/lapbaocao-main.php?username=<?php echo $tentaikhoan ?>active=lapbaocao&filename=<?php echo $filename ?>" class="btn btn-default" id="quaylai" style="margin-left:40px">Quay lại</a>
+                <a href="http://khoa-luan.local/wqi/lapbaocao-main.php?username=<?php echo $tentaikhoan ?>active=lapbaocao&filename=<?php echo $filename ?>" class="btn btn-default" id="quaylai" style="margin-left:40px">Quay lại</a>
             </div>
 		</div>
 	</div>
-	
-	
+
+
 </body>
 </html>

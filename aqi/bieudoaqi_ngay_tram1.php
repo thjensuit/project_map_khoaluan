@@ -48,14 +48,14 @@
 
 
 <script type="text/javascript">
-    $(function () {    
+    $(function () {
         var defaultTitle = "Biểu đồ AQI giờ trạm <?php echo $tentram ?> ";
         var drilldownTitle = "Biểu đồ AQI thông số trạm <?php echo $tentram.' ' ?>";
 
     // Create the chart
     var chart = new Highcharts.Chart({
         chart: {
-            
+
             renderTo: 'container',
             events: {
                 drilldown: function(e) {
@@ -101,8 +101,8 @@
         series: [{
             color : '#cc00cc',
             data: [<?php
-            $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-            $select_databieudo = "SELECT * FROM $filename_h where to_char(\"thoigian\", 'YYYY/MM/DD')='$date' and tentram = '$tentram'" ; 
+            $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+            $select_databieudo = "SELECT * FROM $filename_h where to_char(\"thoigian\", 'YYYY/MM/DD')='$date' and tentram = '$tentram'" ;
             $result = pg_query($conn,"$select_databieudo");
             if($result==true){
                 while($row = pg_fetch_array($result)){
@@ -130,8 +130,8 @@
                     text: 'Biểu đồ AQI thông số tp.HCM',
                 },
                 series: [
-                <?php 
-                $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+                <?php
+                $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
                 $select_data= "SELECT * FROM $filename_h where to_char(\"thoigian\", 'YYYY/MM/DD')='$date' and tentram = '$tentram'";
                 $result = pg_query($conn,"$select_data");
                 if ($result == true){
@@ -149,7 +149,7 @@
                     }else{
                         $mau_so2 = '#996600';
                     }
-                    
+
                     $mau_co="";
                 if($row['aqi_h_co']>=0 && $row['aqi_h_co']<=50){
                     $mau_co= '#66ccff';
@@ -288,8 +288,8 @@
                 }else{
                     echo "khong thanh cong";
                 }
-                ?>   
-                ]   
+                ?>
+                ]
             }
 
         })

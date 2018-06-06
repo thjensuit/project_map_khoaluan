@@ -18,13 +18,13 @@
         $tentram = $_GET['tentram'];
         $tentram1  = str_replace("-"," ",$tentram);
         $thoigian = $_GET['thoigian'];
-        $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+        $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
     }
      ?>
      <div class="container" style="margin-top: 70px">
      	<div class="row">
      		<div class="col-md-8">
-     			<div id='container'></div>	
+     			<div id='container'></div>
      		</div>
             <div class="col-md-4">
                 <div class="col-md-8 col-md-offset-2">
@@ -70,13 +70,13 @@
 </body>
 </html>
 <script type="text/javascript">
-    $(function () {    
-    var defaultTitle = "Biểu đồ WQI trạm <?php echo $tentram1." ".$thoigian ?>" ; 
+    $(function () {
+    var defaultTitle = "Biểu đồ WQI trạm <?php echo $tentram1." ".$thoigian ?>" ;
     var drilldownTitle = "Biểu đồ WQI thông số trạm ";
     // Create the chart
     var chart = new Highcharts.Chart({
         chart: {
-            
+
             renderTo: 'container',
             events: {
                 drilldown: function(e) {
@@ -122,7 +122,7 @@
         series: [{
             color : 'red',
             data: [<?php
-            $select_databieudo = "SELECT * FROM $filename WHERE tentram = '$tentram1'and  to_char(\"thoigian\",'yyyy/mm') ='$thoigian'" ; 
+            $select_databieudo = "SELECT * FROM $filename WHERE tentram = '$tentram1'and  to_char(\"thoigian\",'yyyy/mm') ='$thoigian'" ;
             $result = pg_query($conn,"$select_databieudo");
             if($result==true){
                 while($row = pg_fetch_array($result)){
@@ -155,8 +155,8 @@
                     text: 'Biểu đồ WQI thông số tp.HCM',
                 },
                 series: [
-                <?php 
-                $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+                <?php
+                $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
                 $select_data= "SELECT * FROM $filename WHERE tentram = '$tentram1'and  to_char(\"thoigian\",'yyyy/mm') ='$thoigian'";
                 $result = pg_query($conn,"$select_data");
                 if ($result == true){
@@ -184,8 +184,8 @@
                 }else{
                     echo "khong thanh cong";
                 }
-                ?>   
-                ]   
+                ?>
+                ]
             }
 
         })

@@ -26,8 +26,8 @@
   if(isset($_GET['username'])){
     $tentaikhoan = $_GET['username'];
   }
-  
-	$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+
+	$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 	$date = "";
 	if(isset($_POST['ngay_option']) && isset($_POST['thang_option']) &&isset($_POST['nam_option']) ){
 		$ngay = $_POST['ngay_option'];
@@ -67,7 +67,7 @@
 				<b><h4>Thời gian lập báo cáo : <?php if(isset($_POST["thoigian"])){echo $_POST["thoigian"];} ?></b></h4>
 			</div><!-- thong tin nguoi lap bao cao -->
 
-			
+
 
 			<div class="col-md-12" style="margin-top: 50px">
 			<div class="col-md-5 col-md-offset-4" style="margin-bottom: 10px"><h4><i>Bảng Thông tin Trạm Quan Trắc<?php echo " - ".$date ?></i> </h4></div>
@@ -83,7 +83,7 @@
 					<tbody>
 						<?php
 						$select_data= "SELECT * FROM $filename_ngay where to_char(\"thoigian\", 'YYYY/MM/DD')='$date'";
-						$result = pg_query($conn,"$select_data"); 
+						$result = pg_query($conn,"$select_data");
 						if ($result == true){
 							$id =0;
 							while($row = pg_fetch_array($result)){
@@ -93,14 +93,14 @@
 							$mau ='';
 					 ?>
 					 	<tr>
-								<td><?php echo $id; ?></td>	
+								<td><?php echo $id; ?></td>
 								<td><?php echo $row['tentram']?></td>
 								<td><?php echo $row['x']?></td>
 								<td><?php echo $row['y']?></td>
 						</tr>
 					 <?php
 					 		}
-					 	} 
+					 	}
 					  ?>
 					</tbody>
 				</table>
@@ -126,7 +126,7 @@
 					<tbody>
 						<?php
 						$select_data= "SELECT * FROM $filename_h where to_char(\"thoigian\", 'YYYY/MM/DD')='$date'";
-						$result = pg_query($conn,"$select_data"); 
+						$result = pg_query($conn,"$select_data");
 						if ($result == true){
 							$id =0;
 							while($row = pg_fetch_array($result)){
@@ -136,9 +136,9 @@
 							$mau ='';
 					 ?>
 					 	<tr>
-								<td><?php echo $row['tentram']?></td>	
+								<td><?php echo $row['tentram']?></td>
 								<td><?php echo $row['thoigian']?></td>
-								<td><?php echo $row['aqi_h_so2']?></td>	
+								<td><?php echo $row['aqi_h_so2']?></td>
 								<td><?php echo $row['aqi_h_no2']?></td>
 								<td><?php echo $row['aqi_h_tsp']?></td>
 								<td><?php echo $row['aqi_h_pm10']?></td>
@@ -149,7 +149,7 @@
 						</tr>
 					 <?php
 					 		}
-					 	} 
+					 	}
 					  ?>
 					</tbody>
 				</table>
@@ -176,7 +176,7 @@
 					<tbody>
 						<?php
 						$select_data= "SELECT * FROM $filename_ngay where thoigian='$date'";
-						$result = pg_query($conn,"$select_data"); 
+						$result = pg_query($conn,"$select_data");
 						if ($result == true){
 							while($row = pg_fetch_array($result)){
 							$mucanhhuong='';
@@ -184,20 +184,20 @@
 							$mau ='';
 					 ?>
 					 	<tr>
-								<td><?php echo $row['tentram']?></td>	
+								<td><?php echo $row['tentram']?></td>
 								<td><?php echo $row['thoigian']?></td>
-								<td><?php echo $row['aqi_ngay_so2']?></td>	
+								<td><?php echo $row['aqi_ngay_so2']?></td>
 								<td><?php echo $row['aqi_ngay_no2']?></td>
 								<td><?php echo $row['aqi_ngay_tsp']?></td>
 								<td><?php echo $row['aqi_ngay_pm10']?></td>
 								<td><?php echo $row['aqi_ngay_pm25']?></td>
 								<td><?php echo $row['aqi_ngay_pb']?></td>
 								<td><?php echo $row['aqi_ngay_tram']?></td>
-								
+
 							</tr>
 					 <?php
 					 		}
-					 	} 
+					 	}
 					  ?>
 					</tbody>
 				</table>
@@ -221,7 +221,7 @@
 					<tbody>
 					<?php
 						$select_data= "SELECT * from $filename_ngay where thoigian ='$date'";
-						$result = pg_query($conn,"$select_data"); 
+						$result = pg_query($conn,"$select_data");
 						if ($result == true){
 							while($row = pg_fetch_array($result)){
 							$mucanhhuong='';
@@ -229,10 +229,10 @@
 							$mau ='';
 					 ?>
 					 	<tr>
-								<td><?php echo $row['tentram']?></td>	
-								<td><?php echo $row['thoigian']?></td>	
+								<td><?php echo $row['tentram']?></td>
+								<td><?php echo $row['thoigian']?></td>
 								<td><?php echo $row['aqi_ngay_tram']?></td>
-								<td><?php 
+								<td><?php
 									if($row['aqi_ngay_tram']>=0 && $row['aqi_ngay_tram']<=50){
 										echo"0-50";
 										$mucanhhuong='Không ảnh hưởng đến sức khỏe';
@@ -264,11 +264,11 @@
 								<td><?php echo $chatluong ?></td>
 								<td><?php echo "$mucanhhuong"; ?></td>
 								<td> <?php echo $mau ?></td>
-								
+
 							</tr>
 					 <?php
 					 		}
-					 	} 
+					 	}
 					  ?>
 					</tbody>
 				</table>
@@ -276,7 +276,7 @@
 
 			<div class="col-md-12"><div id="container1" style="width: 800px; height: 450px; margin-left: 160px; margin-top: 40px"></div></div><!-- bieudo -->
 			<script type="text/javascript">
-				$(function () {    
+				$(function () {
 					var defaultTitle = "Biểu đồ AQI các trạm quan trắc TP.HCM <?php echo " - "."$date"; ?>" ;
 
     // Create the chart
@@ -325,8 +325,8 @@
     	series: [{
 
     		data: [<?php
-    		$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-    		$select_databieudo = "SELECT * FROM $filename_ngay WHERE thoigian='$date'" ; 
+    		$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+    		$select_databieudo = "SELECT * FROM $filename_ngay WHERE thoigian='$date'" ;
     		$result = pg_query($conn,"$select_databieudo");
     		if($result==true){
     			while($row = pg_fetch_array($result)){
@@ -357,17 +357,17 @@
     	})
 });
 </script>
-		
-		
+
+
 			<div class="col-md-6 col-md-offset-5">
-			
+
 				<input type="button" id="print_button"   class="btn btn-success" value="Xuất báo cáo" onclick="window.print()" style="margin-bottom: 70px; margin-top: 70px; " />
-				<a href="http://localhost/khoaluan/aqi/baocao.php?username=<?php echo $tentaikhoan ?>&active=lapbaocao&&filename=<?php echo $filename_h ?>" class="btn btn-default" id="quaylai" style="margin-left:40px">Quay lại</a>
+				<a href="http://khoa-luan.local/aqi/baocao.php?username=<?php echo $tentaikhoan ?>&active=lapbaocao&&filename=<?php echo $filename_h ?>" class="btn btn-default" id="quaylai" style="margin-left:40px">Quay lại</a>
 			</div>
 
 		</div>
 </body>
 
 	</div>
-		
+
 </html>

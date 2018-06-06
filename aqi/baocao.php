@@ -20,11 +20,11 @@
 		if(isset($_GET['filename'])){
            	if($_GET['filename']!=''){
            	$filename_h= $_GET['filename'];
-           	$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-           
-           
+           	$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+
+
 	 ?>
-	<form action="http://localhost/khoaluan/aqi/baocao_main.php?username=<?php echo $tentaikhoan ?>&filename=<?php if(isset($_GET['filename'])){
+	<form action="http://khoa-luan.local/aqi/baocao_main.php?username=<?php echo $tentaikhoan ?>&filename=<?php if(isset($_GET['filename'])){
             echo $_GET['filename'];
             } ?>" method="POST">
 		<div class="modal fade" id="myModal" role="dialog">
@@ -34,7 +34,7 @@
 						<div class="modal-header">
 							<div class="row">
 								<div class="col-md-12">
-									<a  class="close" href="http://localhost/khoaluan/aqi/dashboard-aqi.php?username=<?php echo $tentaikhoan ?>">&times;</a>
+									<a  class="close" href="http://khoa-luan.local/aqi/dashboard-aqi.php?username=<?php echo $tentaikhoan ?>">&times;</a>
 									<h4 class="modal-title" style="padding-left: 180px">Thông tin lập báo cáo </h4>
 								</div>
 							</div>
@@ -91,7 +91,7 @@
 													<option value="<?php echo $row[0]; ?>"><?php echo "Ngày $row[0]"; ?></option>
 													<?php
 												}
-											} 
+											}
 											?>
 										</select>
 									</div>
@@ -108,11 +108,11 @@
 													<option value="<?php echo $row[0]; ?>"><?php echo "Tháng $row[0]"; ?></option>
 													<?php
 												}
-											} 
+											}
 											?>
 										</select>
 									</div>
-									
+
 									<div class="col-md-3">
 										<select class="form-control" id="sel1" name="nam_option">
 											<option selected value="chonnam" style="">-Năm-</option>
@@ -125,7 +125,7 @@
 													<option value="<?php echo $row[0]; ?>"><?php echo "Năm $row[0]"; ?></option>
 													<?php
 												}
-											} 
+											}
 											?>
 										</select>
 									</div>
@@ -134,7 +134,7 @@
 								<div class="col-md-3 col-md-offset-1" style="margin-top: 10px">
 									<p><b><i>Tên Trạm</i></b></p>
 								</div>
-								
+
 								<div class="col-md-12">
 									<div class="col-md-5 col-md-offset-1">
 										<select class="form-control" id="sel1" name="tentram_option">
@@ -148,7 +148,7 @@
 													<option value="<?php echo $row[0]; ?>"><?php echo "Trạm $row[0]"; ?></option>
 													<?php
 												}
-											} 
+											}
 											?>
 										</select>
 									</div>
@@ -160,7 +160,7 @@
 						<div class="modal-footer">
 							<input type="submit" value="Xem báo cáo" class="btn btn-primary" name="xembaocaoaqi" >
 
-							<a class="btn btn-default" href="http://localhost/khoaluan/aqi/dashboard-aqi.php?username=<?php echo $tentaikhoan ?>"> Đóng</a>
+							<a class="btn btn-default" href="http://khoa-luan.local/aqi/dashboard-aqi.php?username=<?php echo $tentaikhoan ?>"> Đóng</a>
 						</div> <!-- end footer -->
 
 					</div> <!-- end content -->
@@ -170,7 +170,7 @@
 	</form>
 	<?php
 		}
-		} 
+		}
 	 ?>
 	<script type="text/javascript">
 		$(window).on('load',function(){

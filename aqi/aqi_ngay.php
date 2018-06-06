@@ -21,29 +21,29 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php 
-					$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+					<?php
+					$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 					$select_data= "SELECT * from $filename";
 					$result = pg_query($conn,"$select_data");
 					if ($result == true){
-						while($row = pg_fetch_array($result)){		
+						while($row = pg_fetch_array($result)){
 							?>
 							<tr>
-								<td><?php echo $row['tentram']?></td>	
-								<td><?php echo $row['thoigian']?></td>	
+								<td><?php echo $row['tentram']?></td>
+								<td><?php echo $row['thoigian']?></td>
 								<td><?php echo $row['aqi_ngay_tram']?></td>
-								
+
 							</tr>
 							<?php
 
 						} ?>
 					</tbody>
 
-					<?php   
-			
+					<?php
+
 			}
 			?>
-						
+
 		</table>
 	</div> <!-- end aqi ngay -->
 
@@ -67,8 +67,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php 
-					$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+					<?php
+					$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 					$select_data= "SELECT * from $filename";
 					$result = pg_query($conn,"$select_data");
 					if ($result == true){
@@ -78,10 +78,10 @@
 							$mau ='';
 							?>
 							<tr>
-								<td><?php echo $row['tentram']?></td>	
-								<td><?php echo $row['thoigian']?></td>	
+								<td><?php echo $row['tentram']?></td>
+								<td><?php echo $row['thoigian']?></td>
 								<td><?php echo $row['aqi_ngay_tram']?></td>
-								<td><?php 
+								<td><?php
 									if($row['aqi_ngay_tram']>=0 && $row['aqi_ngay_tram']<=50){
 										echo"0-50";
 										$mucanhhuong='Không ảnh hưởng đến sức khỏe';
@@ -117,18 +117,18 @@
 										echo "#cc7a00";}elseif ($mau=='Đỏ') {
 											echo "red";
 										}else{echo "#996600";} ?>"> <?php echo $mau ?></td>
-								
+
 							</tr>
 							<?php
 
 						} ?>
 					</tbody>
 
-					<?php   
+					<?php
 				}
 			}
 			?>
-						
+
 		</table>
 		<button class="btn btn-warning" style="background: #ff6600; margin-left:400px" id="btn_downloadaqingay"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> download kết quả</button>
 	</div> <!-- end aqi ngay -->

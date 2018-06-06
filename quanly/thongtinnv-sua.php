@@ -28,7 +28,7 @@
 		$tennguoidung = 'u';
 	}
  ?>
-	<form action = "http://localhost/khoaluan/quanly/thongtinnv-sua-thongbao.php?username=admin&id=<?php echo $id; ?>" method = "POST">
+	<form action = "http://khoa-luan.local/quanly/thongtinnv-sua-thongbao.php?username=admin&id=<?php echo $id; ?>" method = "POST">
 		<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog">
 					<!-- Modal content-->
@@ -85,7 +85,7 @@
 						<div class="modal-footer">
 							<input type="submit" value="Sửa" class="btn btn-success" name="sua" >
 
-							<a class="btn btn-default" href="http://localhost/khoaluan/quanly/dashboard.php?username=admin&active=thongtinnv"> Hủy</a>
+							<a class="btn btn-default" href="http://khoa-luan.local/quanly/dashboard.php?username=admin&active=thongtinnv"> Hủy</a>
 						</div> <!-- end footer -->
 
 					</div> <!-- end content -->

@@ -19,9 +19,9 @@
 						<label for="sel1"><b>Thời gian</b></label>
 						<select class="form-control" id="sel1" name="thoigian_option">
 								<option selected value="chonthoigian">- Chọn thời gian-</option>
-							<?php 
-							$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-							$select_thoigian = "SELECT distinct to_char(\"thoigian\", 'DD/MM/YYYY') FROM $filename_ngay order by to_char(\"thoigian\", 'DD/MM/YYYY') asc"; 
+							<?php
+							$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+							$select_thoigian = "SELECT distinct to_char(\"thoigian\", 'DD/MM/YYYY') FROM $filename_ngay order by to_char(\"thoigian\", 'DD/MM/YYYY') asc";
 							$result_thoigian = pg_query($conn,"$select_thoigian");
 							if($result_thoigian==true){
 								while($row_thoigian = pg_fetch_array($result_thoigian)){
@@ -37,9 +37,9 @@
 						<label for="sel1"><b>Thời gian</b></label>
 						<select class="form-control" id="sel1" name="tram">
 								<option selected value="chontram">- Trạm-</option>
-							<?php 
-							$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-							$select_thoigian = "SELECT distinct tentram FROM $filename_ngay order by tentram asc"; 
+							<?php
+							$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+							$select_thoigian = "SELECT distinct tentram FROM $filename_ngay order by tentram asc";
 							$result_thoigian = pg_query($conn,"$select_thoigian");
 							if($result_thoigian==true){
 								while($row_thoigian = pg_fetch_array($result_thoigian)){
@@ -76,7 +76,7 @@
 									</div>
 								</div>
 								<script type="text/javascript">
-									$(function () {    
+									$(function () {
 										var defaultTitle = "Biểu đồ AQI các trạm quan trắc TP.HCM ngày" + <?php echo "\" $thoigian\""; ?> ;
 										var drilldownTitle = "Biểu đồ AQI thông số trạm ";
 
@@ -129,8 +129,8 @@
     	series: [{
 
     		data: [<?php
-    		$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-    		$select_databieudo = "SELECT * FROM $filename_ngay WHERE to_char(\"thoigian\", 'DD/MM/YYYY')='$thoigian'" ; 
+    		$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+    		$select_databieudo = "SELECT * FROM $filename_ngay WHERE to_char(\"thoigian\", 'DD/MM/YYYY')='$thoigian'" ;
     		$result = pg_query($conn,"$select_databieudo");
     		if($result==true){
     			while($row = pg_fetch_array($result)){
@@ -157,8 +157,8 @@
     				text: 'Biểu đồ AQI thông sôtp.HCM',
     			},
     			series: [
-    			<?php 
-    			$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+    			<?php
+    			$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
     			$select_data= "SELECT * from $filename_ngay";
     			$result = pg_query($conn,"$select_data");
     			if ($result == true){
@@ -178,15 +178,15 @@
     			}else{
     				echo "khong thanh cong";
     			}
-    			?>   
-    			]	
+    			?>
+    			]
     		}
 
     	})
  });
 </script>
 
-<?php 						
+<?php
 			}//-> TH1: nguoi dung chon chi chon thoi gian
 			if($_POST['thoigian_option'] !='chonthoigian' && $_POST['tram'] !='chontram' ){
 				$thoigian = $_POST['thoigian_option'];
@@ -198,14 +198,14 @@
 				</div>
 			</div>
 		<script type="text/javascript">
-			$(function () {    
+			$(function () {
 	var defaultTitle = "Biểu đồ AQI giờ trạm " +  <?php echo "\" $tram\""; ?> +" ngày " + <?php echo "\"$thoigian\""; ?> ;
 	var drilldownTitle = "Biểu đồ AQI thông số trạm <?php echo $tram; ?>";
 
     // Create the chart
     var chart = new Highcharts.Chart({
     	chart: {
-    		
+
     		renderTo: 'container',
     		events: {
     			drilldown: function(e) {
@@ -251,8 +251,8 @@
     	series: [{
             color : 'red',
     		data: [<?php
-    		$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-    		$select_databieudo = "SELECT * FROM $filename_h WHERE to_char(\"thoigian\", 'DD/MM/YYYY')='$thoigian' and tentram='$tram' " ; 
+    		$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+    		$select_databieudo = "SELECT * FROM $filename_h WHERE to_char(\"thoigian\", 'DD/MM/YYYY')='$thoigian' and tentram='$tram' " ;
     		$result = pg_query($conn,"$select_databieudo");
     		if($result==true){
     			while($row = pg_fetch_array($result)){
@@ -280,8 +280,8 @@
     				text: 'Biểu đồ AQI thông sôtp.HCM',
     			},
     			series: [
-    			<?php 
-    			$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+    			<?php
+    			$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
     			$select_data= "SELECT * from $filename_h";
     			$result = pg_query($conn,"$select_data");
     			if ($result == true){
@@ -302,8 +302,8 @@
     			}else{
     				echo "khong thanh cong";
     			}
-    			?>   
-    			]	
+    			?>
+    			]
     		}
 
     	})
@@ -311,9 +311,9 @@
 		</script>
 <?php
 			}// TH2 nguoi dung chon thoi gian va ten tram
-					
+
 		}
-					
+
 	}
 }
 ?>

@@ -24,26 +24,26 @@
 						<th>TSP</th>
 						<th>PM10</th>
 						<th>PM2.5</th>
-						<th>Pb</th>		
+						<th>Pb</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php 
-					$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+					<?php
+					$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 					$select_data= "SELECT * from $filename";
 					$result = pg_query($conn,"$select_data");
 					if ($result == true){
-						while($row = pg_fetch_array($result)){		
+						while($row = pg_fetch_array($result)){
 							?>
 							<tr>
-								<td><?php echo $row['tentram']?></td>	
-								<td><?php echo $row['thoigian']?></td>	
-								<td><?php echo $row['so2']?></td>	
-								<td><?php echo $row['co']?></td>	
-								<td><?php echo $row['no2']?></td>	
-								<td><?php echo $row['o3']?></td>		
+								<td><?php echo $row['tentram']?></td>
+								<td><?php echo $row['thoigian']?></td>
+								<td><?php echo $row['so2']?></td>
+								<td><?php echo $row['co']?></td>
+								<td><?php echo $row['no2']?></td>
+								<td><?php echo $row['o3']?></td>
 								<td><?php echo $row['tsp']?></td>
-								<td><?php echo $row['pm10']?></td>	
+								<td><?php echo $row['pm10']?></td>
 								<td><?php echo $row['pm25']?></td>
 								<td><?php echo $row['pb']?></td>
 							</tr>
@@ -52,10 +52,10 @@
 						} ?>
 					</tbody>
 
-					<?php   
+					<?php
 				}
 			}
-			?>			
+			?>
 		</table>
 	</div>
 

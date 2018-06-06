@@ -1,5 +1,5 @@
 <?php
- 	$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+ 	$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
  	$kiemtratenfile = "SELECT * FROM dulieufilewqi";
  	$result_kiemtratenfile = pg_query($conn, "$kiemtratenfile");
  	if($result_kiemtratenfile==true){
@@ -15,8 +15,8 @@
  			$tentram_thang[] = $row['tentram'];
  			$thoigian_thang[] = $row['thoigian'];
  			$toadox[] = $row['x'];
- 			$toadoy[] = $row['y'];  
- 			
+ 			$toadoy[] = $row['y'];
+
  			$resulttb = pg_query($conn,"$selectwqitbthang");
  			if($resulttb == true){
  				$num = 0;
@@ -45,35 +45,35 @@
  				} // ket thuc while 2
 
  				echo $row['tentram']." ".$row['thoigian']." ".$nhietdo_tong." "."<br>";
- 				$nhietdo_tb= round($nhietdo_tong/$num , 2, PHP_ROUND_HALF_UP); 
+ 				$nhietdo_tb= round($nhietdo_tong/$num , 2, PHP_ROUND_HALF_UP);
  				$nhietdo_tbthang[] =$nhietdo_tb ;
 
- 				$bod_tb= round($bod_tong/$num , 2, PHP_ROUND_HALF_UP); 
+ 				$bod_tb= round($bod_tong/$num , 2, PHP_ROUND_HALF_UP);
  				$bod_tbthang[] =$bod_tb ;
 
- 				$cod_tb= round($cod_tong/$num , 2, PHP_ROUND_HALF_UP); 
+ 				$cod_tb= round($cod_tong/$num , 2, PHP_ROUND_HALF_UP);
  				$cod_tbthang[] =$cod_tb ;
 
- 				$n_tb= round($n_tong/$num , 2, PHP_ROUND_HALF_UP); 
+ 				$n_tb= round($n_tong/$num , 2, PHP_ROUND_HALF_UP);
  				$n_tbthang[] =$n_tb ;
 
- 				$p_tb= round($p_tong/$num , 2, PHP_ROUND_HALF_UP); 
+ 				$p_tb= round($p_tong/$num , 2, PHP_ROUND_HALF_UP);
  				$p_tbthang[] =$p_tb ;
 
- 				$tss_tb= round($tss_tong/$num , 2, PHP_ROUND_HALF_UP); 
+ 				$tss_tb= round($tss_tong/$num , 2, PHP_ROUND_HALF_UP);
  				$tss_tbthang[] =$tss_tb ;
 
- 				$d0_tb= round($d0_tong/$num , 2, PHP_ROUND_HALF_UP); 
+ 				$d0_tb= round($d0_tong/$num , 2, PHP_ROUND_HALF_UP);
  				$d0_tbthang[] =$d0_tb ;
 
- 				$ph_tb= round($ph_tong/$num , 2, PHP_ROUND_HALF_UP); 
+ 				$ph_tb= round($ph_tong/$num , 2, PHP_ROUND_HALF_UP);
  				$ph_tbthang[] =$ph_tb ;
 
- 				$coliform_tb= round($coliform_tong/$num , 2, PHP_ROUND_HALF_UP); 
+ 				$coliform_tb= round($coliform_tong/$num , 2, PHP_ROUND_HALF_UP);
  				$coliform_tbthang[] =$coliform_tb ;
 
 
- 				$doduc_tb= round($doduc_tong/$num , 2, PHP_ROUND_HALF_UP); 
+ 				$doduc_tb= round($doduc_tong/$num , 2, PHP_ROUND_HALF_UP);
  				$doduc_tbthang[] =$doduc_tb ;
 
 
@@ -83,11 +83,11 @@
 
  		for($x = 0; $x < $arrlength; $x++) {
  			echo $tentram_thang[$x]."Nhiệt độ".$nhietdo_tbthang[$x]."<br>";
- 		
+
  		} //-> ket thuc for
 
  	} // Ket thuc  if 1
  }
 }
- 	
+
  ?>

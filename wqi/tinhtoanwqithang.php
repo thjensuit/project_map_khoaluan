@@ -1,7 +1,7 @@
 <?php
-        $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+        $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
         $tenfile =$name[0]."_thang";
-        
+
         if ($tenfile !='') {
       $select_data = "SELECT * FROM $tenfile";
       $result_selectdata = pg_query($conn,"$select_data");
@@ -257,7 +257,7 @@
           $wqi_si_Col= round($wqi_si_Col , 2, PHP_ROUND_HALF_UP);
           $arr_wqicol[]= $wqi_si_Col;
 
-          #A--- DO ---- 
+          #A--- DO ----
 
         $do = $row['d0'];
         $T = $row['nhietdo'] ;
@@ -461,7 +461,7 @@
             // echo $id[$x]."<br>";
             $update_wqi = "UPDATE $tenfile SET wqi_bod = $arr_wqibod[$x],wqi_cod=$arr_wqicod[$x],wqi_n=$arr_wqinh4[$x],wqi_p=$arr_wqip[$x],wqi_tss=$arr_wqitss[$x],wqi_do=$arr_wqido[$x],wqi_ph=$arr_wqiph[$x],wqi_coliform=$arr_wqicol[$x],wqi_doduc=$arr_wqidoduc[$x], wqi_tram = $arr_wqitram[$x] where id = $id[$x]";
             pg_query($conn,"$update_wqi");
-            
+
 
         };
     }

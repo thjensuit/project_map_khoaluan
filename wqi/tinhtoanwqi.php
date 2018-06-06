@@ -1,5 +1,5 @@
 <?php
-      $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+      $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
       if ($name[0]!="") {
     	$select_data = "SELECT * FROM $name[0]";
     	$result_selectdata = pg_query($conn,"$select_data");
@@ -255,7 +255,7 @@
           $wqi_si_Col= round($wqi_si_Col , 2, PHP_ROUND_HALF_UP);
           $arr_wqicol[]= $wqi_si_Col;
 
-          #A--- DO ---- 
+          #A--- DO ----
 
         $do = $row['d0'];
         $T = $row['nhietdo'] ;

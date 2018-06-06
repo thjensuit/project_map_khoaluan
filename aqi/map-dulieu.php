@@ -17,18 +17,18 @@
         $tentram = $_GET['tentram'];
         $tentram1  = str_replace("-"," ",$tentram);
         $thoigian = $_GET['thoigian'];
-        $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+        $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
     }
      ?>
      <div class="container" style="margin-top: 70px">
         <div class="row">
             <div class="col-md-9">
                 <div id="container" style="width: 700px; height: 400px;margin: 0 auto">
-                    
+
                 </div>
             </div>
             <div class="col-md-3" style="margin-top: 60px">
-                <div class="col-md-5 col-md-offset-4"><h5><b><i>Chú thích</i><b></h5></div> 
+                <div class="col-md-5 col-md-offset-4"><h5><b><i>Chú thích</i><b></h5></div>
                 <table class="table table-bordered">
                 <tr>
                     <td style="background:#fff2e6">Khoảng giá trị</td>
@@ -42,12 +42,12 @@
                     <td style="background-color:#f2f2f2" >51-100</td>
                     <td style="background-color:#ffff00">Trung bình</td>
                 </tr>
-                
+
                 <tr>
                     <td style="background-color:#f2f2f2">101-200</td>
                     <td style="background-color:#ffa31a " >Kém</td>
                 </tr>
-                
+
                 <tr>
                     <td style="background-color:#f2f2f2">201-300</td>
                     <td style="background-color:red">Xấu</td>
@@ -97,8 +97,8 @@
     },
     series: [{
         colorByPoint: true,
-        data: [<?php 
-        $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+        data: [<?php
+        $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
         $select = "SELECT *  from $filename_ngay where thoigian='$thoigian' and tentram ='$tentram1'";
         $result = pg_query($conn,"$select");
 
@@ -248,7 +248,7 @@
             }
         }
 
-        ?>] 
+        ?>]
     }]
 });
 </script>

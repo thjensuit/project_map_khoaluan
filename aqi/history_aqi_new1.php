@@ -1,6 +1,6 @@
 <div class="card" style="height: 500px">
 	<div class="header">
-		<form action="" method="POST" role="form" enctype="multipart/form-data"> 
+		<form action="" method="POST" role="form" enctype="multipart/form-data">
 			<input type="file" name="excelfile"><br><input class="btn btn-primary" type="submit" value="Import data" name="btn-import">
 		</form>
 		<div class="tieude" style="text-align: center;" >
@@ -8,7 +8,7 @@
 		</div>
 	</div>
 	<?php
-	$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison"); 
+	$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 	$name[0]="";
 	if (isset($_POST['btn-import'])) {
 		if (!empty($_FILES["excelfile"]["name"])) {
@@ -70,7 +70,7 @@
 								tenhinh varchar(50)
 							)";
 							$tbl_aqi = pg_query($conn,"$create_tblaqi");
-							$tbl_aqi_ngay = pg_query($conn,"$create_tblaqi_ngay");	
+							$tbl_aqi_ngay = pg_query($conn,"$create_tblaqi_ngay");
 							$tbl_aqi_hinh = pg_query($conn,"$create_tbl_aqi_hinh");
 							if($tbl_aqi == true){
 								$file = $_FILES["excelfile"]["tmp_name"];
@@ -101,7 +101,7 @@
 												$aqi_h_so2= round($so2*10/35 , 0, PHP_ROUND_HALF_UP);
 												$arr_h_so2[] = $aqi_h_so2;
 											}else{
-												$aqi_h_so2 = -1; 
+												$aqi_h_so2 = -1;
 												$arr_h_so2[] = $aqi_h_so2;
 											}//-> end so2
 
@@ -109,7 +109,7 @@
 												$aqi_h_co= round($co/300 , 0, PHP_ROUND_HALF_UP);
 												$arr_h_co[] = $aqi_h_co;
 											}else{
-												$aqi_h_co = -1; 
+												$aqi_h_co = -1;
 												$arr_h_co[] = $aqi_h_so2;
 											}//-> end co
 
@@ -118,7 +118,7 @@
 												$arr_h_no2[] = $aqi_h_no2;
 											}else{
 												$aqi_h_no2= -1;
-												$arr_h_no2[]= $aqi_h_no2; 
+												$arr_h_no2[]= $aqi_h_no2;
 											}//-> no2
 
 											if($o3!=-1){
@@ -164,7 +164,7 @@
 											$aqi_h_tram=max($aqi_h_so2,$aqi_h_co,$aqi_h_no2,$aqi_h_o3,$aqi_h_tsp,$aqi_h_pm10,$aqi_h_pm25,$aqi_h_pb);
 											$arr_h_tram[] = $aqi_h_tram;
 
-										} //-> end tinh toan chi so aqi theo gio 
+										} //-> end tinh toan chi so aqi theo gio
 									}
 								}//-> End vong lap
 
@@ -186,7 +186,7 @@
 										$thoigian_ngay = $row[3];
 										$arr_thoigian_ngay[] =$thoigian_ngay;
 										$toadox[] = $row[1];
-										$toadoy[] = $row[2]; 
+										$toadoy[] = $row[2];
 									}
 									$arrlength_ngay = count($arr_thoigian_ngay);
 									for($x = 0; $x < $arrlength_ngay; $x++){
@@ -231,7 +231,7 @@
 											$sodong_pb = 0;
 
 											$sodong = 0;
-					
+
 											while($row_gio = pg_fetch_array($result_select_tbl_aqi_h)){
 												$sodong++;
 												// echo $row_gio['tentram'].$row_gio['thoigian'].'-pm10:'.$row_gio['pm10'].'<br>';
@@ -265,7 +265,7 @@
 													if($row_gio['pb']!=-1){
 														$pb_tb += $row_gio['pb'];
 														$sodong_pb ++ ;
-													}else{$row_pb_empty ++ ;}	
+													}else{$row_pb_empty ++ ;}
 
 											} //->end while
 
@@ -277,36 +277,36 @@
 											$arrlength_ngay_test = count($arr_aqi_so2_h);
 											// for($x = 0; $x < $arrlength_ngay; $x++){
 											// echo "$arr_aqi_so2_h[$x] <br>";}
-											
+
 
 											//->aqi_ngay_no2
 											if($row_no2_empty!=$sodong){
 												$aqi_no2_ngay = round(($no2_tb/$sodong_no2), 0, PHP_ROUND_HALF_UP);
 											}else{$aqi_no2_ngay = -1 ;}
 
-											
+
 											//->aqi_ngay_tsp
 											if($row_tsp_empty!=$sodong){
 												$aqi_tsp_ngay = round(($tsp_tb/$sodong_tsp)/2 , 0, PHP_ROUND_HALF_UP);
 											}else{$aqi_tsp_ngay = -1 ;}
-											
+
 
 											//->aqi_ngay_pm10
 											if($row_pm10_empty!=$sodong){
 												$aqi_pm10_ngay = round(($pm10_tb/$sodong_pm10)*10/15 , 0, PHP_ROUND_HALF_UP);
 											}else{$aqi_pm10_ngay = -1 ;}
-											
+
 
 											//->aqi_ngay_pm25
 											if($row_pm25_empty!=$sodong){
 												$aqi_pm25_ngay = round(($pm25_tb/$sodong_pm25)*2 , 0, PHP_ROUND_HALF_UP);
 											}else{$aqi_pm25_ngay = -1 ;}
-											
+
 											//->aqi_ngay_pb
 											if($row_pb_empty!=$sodong){
 												$aqi_pb_ngay = round(($pb_tb/$sodong_pb)*100/1.5 , 0, PHP_ROUND_HALF_UP);
 											}else{$aqi_pb_ngay = -1 ;}
-											
+
 											//echo "$aqi_pb_ngay";
 											// echo max($aqi_so2_ngay,$aqi_no2_ngay,$aqi_tsp_ngay,$aqi_pm10_ngay,$aqi_pm25_ngay,$aqi_pb_ngay);
 											$arr_aqi_so2_ngay[] = $aqi_so2_ngay;
@@ -321,7 +321,7 @@
 
 										}
 										// echo max($aqi_so2_ngay);
-										//->insert vao bang				
+										//->insert vao bang
 
 									}
 									$arrlength_ngay1 = count($arr_lenght_ngay);
@@ -332,7 +332,7 @@
 										echo "ok";
 									}
 								}
-								
+
 
 							}else{
 								echo "thatbai";
@@ -361,21 +361,21 @@
 					if($count_rows_tenfile==0){
 						?>
 						<tr class="success"><td colspan="2" style="text-align: center;"><h4>Không có file lưu trữ...</h4></td></tr>
-						<?php 
+						<?php
 					}else{
 						while($row = pg_fetch_row($result_tenfile)) {
 							?>
 							<tbody>
 								<tr>
 									<td> <a style="color:#0000cc" href="dashboard-aqi.php?active=dulieuuser&&filename=<?php echo $row[1];?>" > <?php  echo $row[1];?></a></td>
-									<td><?php echo $row[2]; ?></td>    
+									<td><?php echo $row[2]; ?></td>
 								</tr>
 							</tbody>
 							<?php
 						}
-					} 
+					}
 				} ?>
-			
+
 		</table>
 	</div><!-- End tbl-history -->
 
@@ -384,7 +384,7 @@
     $('#tbl-history').DataTable();
 } );
   </script>
-	
+
 
 </div>
 

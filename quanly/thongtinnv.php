@@ -25,8 +25,8 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php 
-						$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+						<?php
+						$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 						$select_data= "SELECT * from taikhoan";
 						$result = pg_query($conn,"$select_data");
 						if ($result == true){
@@ -44,15 +44,15 @@
 									<td><?php echo $row['matkhau'];?></td>
 									<td><?php echo $row['mail'];?></td>
 									<td>
-										<a class="btn btn-warning" style="color:white; margin-left: 20px" name="xoa" href="http://localhost/khoaluan/quanly/thongtinnv-main.php?action=xoa&username=admin&tentaikhoan=<?php echo $row[1] ?>"> Xóa</a>
+										<a class="btn btn-warning" style="color:white; margin-left: 20px" name="xoa" href="http://khoa-luan.local/quanly/thongtinnv-main.php?action=xoa&username=admin&tentaikhoan=<?php echo $row[1] ?>"> Xóa</a>
 									</td>
 									<td>
-										<a class="btn btn-primary" style="color:white;" name="sua" href="http://localhost/khoaluan/quanly/thongtinnv-sua.php?username=admin&id=<?php echo $id;?>&tennguoidung=<?php echo $tennguoidung;?>&taikhoan=<?php echo $tentaikhoan;?>&matkhau=<?php echo $matkhau;?>&email=<?php echo $mail;?>"> Sửa</a>
-									</td>		
+										<a class="btn btn-primary" style="color:white;" name="sua" href="http://khoa-luan.local/quanly/thongtinnv-sua.php?username=admin&id=<?php echo $id;?>&tennguoidung=<?php echo $tennguoidung;?>&taikhoan=<?php echo $tentaikhoan;?>&matkhau=<?php echo $matkhau;?>&email=<?php echo $mail;?>"> Sửa</a>
+									</td>
 								</tr>
 								<?php
 
-							} 
+							}
 						}
 					?>
 
@@ -61,7 +61,7 @@
 			</table>
 			<div class="row">
 				<div class="col-md-6 col-md-offset-5">
-					<a class="btn btn-success" href="http://localhost/khoaluan/quanly/thongtinnv-them.php?username=admin" style="color:white">Tạo tài khoản mới</a>
+					<a class="btn btn-success" href="http://khoa-luan.local/quanly/thongtinnv-them.php?username=admin" style="color:white">Tạo tài khoản mới</a>
 				</div>
 			</div>
 		</div>

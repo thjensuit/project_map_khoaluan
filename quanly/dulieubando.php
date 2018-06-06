@@ -22,7 +22,7 @@
 					</thead>
 					<tbody>
 						<?php
-							$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+							$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 							$select_data= "SELECT * from dulieufilebando";
 							$result = pg_query($conn,"$select_data");
 							if($result ==true){
@@ -40,11 +40,11 @@
 							<td><?php echo $row['leftt']; ?></td>
 							<td><?php echo $row['rightt']; ?></td>
 							<td>
-								
-								<a class="btn btn-primary" style="color:white;" name="xoa" href="http://localhost/khoaluan/quanly/dulieubando-chon.php?username=admin&filename=<?php echo $row['tenfile']?>"> Chọn</a>
+
+								<a class="btn btn-primary" style="color:white;" name="xoa" href="http://khoa-luan.local/quanly/dulieubando-chon.php?username=admin&filename=<?php echo $row['tenfile']?>"> Chọn</a>
 								</td>
 							<td>
-								<a class="btn btn-warning" style="color:white;" name="xoa" href="http://localhost/khoaluan/quanly/dulieubando-xoa.php?username=admin&filename=<?php echo $row['tenfile']?>"> Xóa</a>
+								<a class="btn btn-warning" style="color:white;" name="xoa" href="http://khoa-luan.local/quanly/dulieubando-xoa.php?username=admin&filename=<?php echo $row['tenfile']?>"> Xóa</a>
 
 							</td>
 						</tr>
@@ -53,11 +53,11 @@
 							}
 						 ?>
 					</tbody>
-	
+
 			</table>
 			<div class="row">
 				<div class="col-md-6 col-md-offset-5">
-					<a class="btn btn-success" href="http://localhost/khoaluan/quanly/dulieubando-them.php?username=admin" style="color:white">Thêm mới</a>
+					<a class="btn btn-success" href="http://khoa-luan.local/quanly/dulieubando-them.php?username=admin" style="color:white">Thêm mới</a>
 				</div>
 			</div>
 		</div>
@@ -87,7 +87,7 @@
 					</thead>
 					<tbody>
 						<?php
-							$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+							$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 							$select_data= "SELECT * from chon_dulieufilebando";
 							$result = pg_query($conn,"$select_data");
 							if($result ==true){
@@ -104,9 +104,9 @@
 							<td><?php echo $row['bottom']; ?></td>
 							<td><?php echo $row['leftt']; ?></td>
 							<td><?php echo $row['rightt']; ?></td>
-							
+
 							<td>
-								<a class="btn btn-warning" style="color:white;" name="xoa" href="http://localhost/khoaluan/quanly/dulieubando-chon-xoa.php?username=admin&filename=<?php echo $row['tenfile']?>"> Xóa</a>
+								<a class="btn btn-warning" style="color:white;" name="xoa" href="http://khoa-luan.local/quanly/dulieubando-chon-xoa.php?username=admin&filename=<?php echo $row['tenfile']?>"> Xóa</a>
 
 							</td>
 						</tr>
@@ -115,7 +115,7 @@
 							}
 						 ?>
 					</tbody>
-	
+
 			</table>
 		</div>
 	</div>

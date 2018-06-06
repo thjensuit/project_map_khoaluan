@@ -4,7 +4,7 @@
 		<h3>Kết quả tính toán chỉ số WQI thông số (WQI_SI)</h3>
 		</div>
 	</div>
-<?php 
+<?php
 if(isset($_GET['filename'])){
  	$filename = $_GET['filename'];
  ?>
@@ -26,12 +26,12 @@ if(isset($_GET['filename'])){
 			</tr>
 		</thead>
 		<tbody>
-		<?php 
-			$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+		<?php
+			$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 			$select_data= "SELECT * from $filename";
 			$result = pg_query($conn,"$select_data");
 			if ($result == true){
-				while($row = pg_fetch_array($result)){			
+				while($row = pg_fetch_array($result)){
 					?>
 					<tr><td><?php echo $row['tentram'];?></td>
 						<td><?php echo $row['thoigian'];?></td>
@@ -43,11 +43,11 @@ if(isset($_GET['filename'])){
 						<td><?php echo $row['wqi_doduc'];?></td>
 						<td><?php echo $row['wqi_coliform'];?></td>
 						<td><?php echo $row['wqi_do'];?></td>
-						<td><?php echo $row['wqi_ph'];?></td>				
+						<td><?php echo $row['wqi_ph'];?></td>
 					</tr>
 					<?php
 
-				} 
+				}
 			}
 		}
 		?>

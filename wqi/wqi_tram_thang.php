@@ -1,4 +1,4 @@
-<?php 
+<?php
 if(isset($_GET['filename'])){
  	$filename = $_GET['filename'];
  	$filename_thang = $_GET['filename']."_thang";
@@ -20,12 +20,12 @@ if(isset($_GET['filename'])){
 					<th>WQITrạm</th>
 					<th>WQITiêuChuẩn</th>
 					<th>Mức đánh giá chất lượng nước</th>
-					<th>Màuthểhiện</th>					
+					<th>Màuthểhiện</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
-				$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+				$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 				$select_data= "SELECT * from $filename_thang";
 				$result = pg_query($conn,"$select_data");
 				if ($result == true){
@@ -51,9 +51,9 @@ if(isset($_GET['filename'])){
 							$mucdo = "Sử dụng tốt cho mục đích cấp nước sinh hoạt";
 							$mau = "Xanh nước biển";
 							$wqichuan = "91-100";
-						}	
-					
-			
+						}
+
+
 				?>
 				<tr>
 					<td><?php echo $row['tentram'];?></td>
@@ -61,7 +61,7 @@ if(isset($_GET['filename'])){
 					<td><?php echo $row['wqi_tram'];?></td>
 					<td><?php echo $wqichuan;?></td>
 					<td><?php echo $mucdo;?></td>
-					<td style="background: <?php 
+					<td style="background: <?php
 						if($row['wqi_tram'] >=0 && $row['wqi_tram'] <= 25){
 							echo "#ff3333";
 						}elseif ($row['wqi_tram'] >=26 && $row['wqi_tram'] <= 50) {
@@ -78,11 +78,11 @@ if(isset($_GET['filename'])){
 					 </td>
 				</tr>
 
-				<?php 
+				<?php
 					}
-						} 
+						}
 				?>
-				
+
 			</tbody>
 
 		</table>
@@ -91,7 +91,7 @@ if(isset($_GET['filename'])){
 				<button class="btn btn-primary" id="wqitram" style=""><span class="glyphicon glyphicon-download-alt" aria-hidden="true"> </span> Download kết quả</button>
 			</div>
 		</div>
-		
+
 	</div>
 
 </div>

@@ -1,5 +1,5 @@
 <?php
-$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 $selectdata_ngay = "SELECT tentram,thoigian from hcm_aqi_thang5_2017_ngay";
 $result_selectdata_ngay = pg_query($conn,"$selectdata_ngay");
 if($result_selectdata_ngay== true){
@@ -130,8 +130,8 @@ if($result_selectdata_ngay== true){
 					$aqi_pb_24h = round(($pb_tb/$sodong_pb)*100/1.5 , 0, PHP_ROUND_HALF_UP);
 				}else{$aqi_pb_24h = -1 ;}
 
-			}	
-			
+			}
+
 			$arr_aqi_so2_ngay[] = max(max($arr_aqi_h_so2),$aqi_so2_24h);
 			$arr_aqi_no2_ngay[] = max(max($arr_aqi_h_no2),$aqi_no2_24h);
 			$arr_aqi_co_ngay[] = max($arr_aqi_h_co);
@@ -150,7 +150,7 @@ if($result_selectdata_ngay== true){
 			$tenthongso="";
 			if($arr_aqi_tram_ngay[$x] == $arr_aqi_so2_ngay[$x]){
 				$tenthongso= "SO2";
-				echo "SO2 <br>"; 
+				echo "SO2 <br>";
 				$tenthongso_max[] = $tenthongso;
 			}
 
@@ -187,7 +187,7 @@ if($result_selectdata_ngay== true){
 			if($arr_aqi_tram_ngay[$x] == $arr_aqi_pm25_ngay[$x]){
 				$tenthongso= "PM25";
 				echo " PM25 <br>";
-				$tenthongso_max[] = $tenthongso; 
+				$tenthongso_max[] = $tenthongso;
 			}
 
 			if($arr_aqi_tram_ngay[$x] == $arr_aqi_pb_ngay[$x]){

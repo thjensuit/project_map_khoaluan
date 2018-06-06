@@ -10,8 +10,8 @@
                 var geojson = [
                 <?php
                 if(isset($_POST['xembando'])){
-                    $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-                    $select_aqitram = "SELECT * FROM $filename_ngay WHERE thoigian ='$date'" ; 
+                    $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+                    $select_aqitram = "SELECT * FROM $filename_ngay WHERE thoigian ='$date'" ;
                 $result = pg_query($conn,"$select_aqitram");
                 if($result==true){
                     while($row = pg_fetch_array($result)){
@@ -20,7 +20,7 @@
                         $thongso_max = $row['thongso_ngay_max'];
                         $tentb = '';
                         $thoigian =$row['thoigian'];
-                        $link = "http://localhost/khoaluan/aqi/map-dulieu.php?filename=$filename_ngay&tentram=$tentram&thoigian=$thoigian";
+                        $link = "http://khoa-luan.local/aqi/map-dulieu.php?filename=$filename_ngay&tentram=$tentram&thoigian=$thoigian";
                         $mau='';
                         if($aqingay>=0 && $aqingay <=50){
                             $mau = 'icon-tot';
@@ -38,9 +38,9 @@
                             $mau_tooltip = '#996600';}
                         $x= $row['x'];
                         $y = $row['y'];
-                        
 
-                        
+
+
                         echo"{
                             type: 'Feature',
                             geometry:{
@@ -51,18 +51,18 @@
                                 icon : {
                                     className: 'my-icon $mau',
                                     html: '$aqingay', // add content inside the marker,
-                                    iconSize: null // size of icon, use null to set the size in CSS 
+                                    iconSize: null // size of icon, use null to set the size in CSS
                                 },
                                 description:'<div style=\"text-align:center\"><h6><b><a href=\"$link\">Trạm $row[1]</a></b></h6><h1>Tọa độ X :$x</h1><h2>Tọa độ Y  :$y</h2><h4 style=\"background: $mau_tooltip\"><b>Chỉ số AQI : $aqingay</b><br><b>Thông số ô nhiễm nhất : $thongso_max</b></h4><h2 style=\"border: 2px solid $mau_tooltip;border-radius: 5px;\"> <span class=\"glyphicon glyphicon-hand-right\" aria-hidden=\"true\"></span><b> Cảnh báo</b>: Nhóm nhạy cảm nên hạn chế thời gian ở bên ngoài</h2></div>'
                             },
-                            
+
                         },";
-                
+
                     }
                 }else{echo"lổii";}
                 }else{
-                    $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-                    $select_aqitram = "SELECT distinct tentram,x,y FROM $filename_ngay" ; 
+                    $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+                    $select_aqitram = "SELECT distinct tentram,x,y FROM $filename_ngay" ;
                     $result = pg_query($conn,"$select_aqitram");
                     if($result==true){
                         while($row = pg_fetch_array($result)){
@@ -79,7 +79,7 @@
                                     icon : {
                                         className: 'my-icon icon-dc',
                                         html: '&#9733;', // add content inside the marker,
-                                        iconSize: null // size of icon, use null to set the size in CSS 
+                                        iconSize: null // size of icon, use null to set the size in CSS
                                     },
                                     description:'<div style=\"text-align:center\"><h3><b>Trạm $tentram</b></h3><h5>Tọa độ X :$x</h5><h5>Tọa độ Y :$y</h5></div>'
                                 }
@@ -91,7 +91,7 @@
                     }
             }//->k bam nut
                 ?>
-            
+
 
                 ];
 
@@ -107,6 +107,6 @@ map.featureLayer.on('click', function(e) {
     });
 
             </script> <!-- js map -->
-       
-    
- 
+
+
+

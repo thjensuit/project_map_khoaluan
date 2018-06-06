@@ -33,12 +33,12 @@
   }
 </style>
 <div class="card"  style="height: 500px">
-    <?php 
+    <?php
         if(isset($_GET['filename'])){
         $filename_h = $_GET['filename'];
         $filename_ngay = $_GET['filename'].'_ngay';
         echo $filename_ngay;
-        
+
     ?>
     <div class="row">
         <form method="post">
@@ -47,9 +47,9 @@
                     <label for="sel1"><b>Thời gian</b></label>
                     <select class="form-control" id="sel1" name="thoigian_option">
                                 <option selected value="chonthoigian">- Chọn thời gian-</option>
-                                <?php 
-                                $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-                                $select_thoigian = "SELECT distinct to_char(\"thoigian\", 'DD/MM/YYYY') FROM $filename_ngay order by to_char(\"thoigian\", 'DD/MM/YYYY') asc"; 
+                                <?php
+                                $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+                                $select_thoigian = "SELECT distinct to_char(\"thoigian\", 'DD/MM/YYYY') FROM $filename_ngay order by to_char(\"thoigian\", 'DD/MM/YYYY') asc";
                                 $result_thoigian = pg_query($conn,"$select_thoigian");
                                 if($result_thoigian==true){
                                     while($row_thoigian = pg_fetch_array($result_thoigian)){
@@ -62,8 +62,8 @@
             <?php
                 if(isset($_POST['xembandoaqi'])){
                     $thoigian = $_POST['thoigian_option'];
-                    $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-                    $select_aqitram = "SELECT * FROM $filename_ngay WHERE to_char(\"thoigian\", 'DD/MM/YYYY')='$thoigian'" ; 
+                    $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+                    $select_aqitram = "SELECT * FROM $filename_ngay WHERE to_char(\"thoigian\", 'DD/MM/YYYY')='$thoigian'" ;
                 $result = pg_query($conn,"$select_aqitram");
                 if($result==true){
                     while($row = pg_fetch_array($result)){
@@ -81,7 +81,7 @@
         </form>
         <div class="col-md-9 pull-left">
             <div id='map' class='map' style="height: 500px">
-                
+
             </div>
             <script type="text/javascript">
                 L.mapbox.accessToken = 'pk.eyJ1Ijoid2ViZ2lzIiwiYSI6ImNqMW9qcGFseDAxM3gyd3BpeXI5Z2t4dnoifQ.eupIYbTkAg8_0xqMmXgCJw';
@@ -93,8 +93,8 @@
                 <?php
                 if(isset($_POST['xembandoaqi'])){
                     $thoigian = $_POST['thoigian_option'];
-                    $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-                    $select_aqitram = "SELECT * FROM $filename_ngay WHERE to_char(\"thoigian\", 'DD/MM/YYYY')='$thoigian'" ; 
+                    $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+                    $select_aqitram = "SELECT * FROM $filename_ngay WHERE to_char(\"thoigian\", 'DD/MM/YYYY')='$thoigian'" ;
                 $result = pg_query($conn,"$select_aqitram");
                 if($result==true){
                     while($row = pg_fetch_array($result)){
@@ -112,9 +112,9 @@
                         }else{$mau = 'icon-nguyhai';}
                         $x= $row['x'];
                         $y = $row['y'];
-                        
 
-                        
+
+
                         echo"{
                             type: 'Feature',
                             geometry:{
@@ -125,18 +125,18 @@
                                 icon : {
                                     className: 'my-icon $mau',
                                     html: '$aqingay', // add content inside the marker,
-                                    iconSize: null // size of icon, use null to set the size in CSS 
+                                    iconSize: null // size of icon, use null to set the size in CSS
                                 },
                                 description:'<div style=\"text-align:center\"><h3><b>Trạm $tentram</b></h3><h5>Tọa độ X :$x</h5><h5>Tọa độ Y  :$y</h5></div>'
                             },
-                            
+
                         },";
-                
+
                     }
                 }else{echo"lổii";}
                 }else{
-                    $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-                    $select_aqitram = "SELECT distinct tentram,x,y FROM $filename_ngay" ; 
+                    $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+                    $select_aqitram = "SELECT distinct tentram,x,y FROM $filename_ngay" ;
                     $result = pg_query($conn,"$select_aqitram");
                     if($result==true){
                         while($row = pg_fetch_array($result)){
@@ -153,7 +153,7 @@
                                     icon : {
                                         className: 'my-icon icon-dc',
                                         html: '&#9733;', // add content inside the marker,
-                                        iconSize: null // size of icon, use null to set the size in CSS 
+                                        iconSize: null // size of icon, use null to set the size in CSS
                                     },
                                     description:'<div style=\"text-align:center\"><h3><b>Trạm $tentram</b></h3><h5>Tọa độ X :$x</h5><h5>Tọa độ Y :$y</h5></div>'
                                 }
@@ -165,7 +165,7 @@
                     }
             }//->k bam nut
                 ?>
-            
+
 
                 ];
 

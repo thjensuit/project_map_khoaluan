@@ -11,9 +11,9 @@
 				<label for="sel1"><b>Thời gian</b></label>
 				<select class="form-control" id="sel1" name="thoigian1">
 					<option selected value="chonthoigian" name="demo">- Chọn thời gian-</option>
-					<?php 
-					$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-					$select_thoigian = "SELECT distinct to_char(\"thoigian\", 'DD/MM/YYYY') FROM $filename_ngay order by to_char(\"thoigian\", 'DD/MM/YYYY') asc"; 
+					<?php
+					$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+					$select_thoigian = "SELECT distinct to_char(\"thoigian\", 'DD/MM/YYYY') FROM $filename_ngay order by to_char(\"thoigian\", 'DD/MM/YYYY') asc";
 					$result_thoigian = pg_query($conn,"$select_thoigian");
 					if($result_thoigian==true){
 						while($row_thoigian = pg_fetch_array($result_thoigian)){
@@ -39,8 +39,8 @@
 					<?php
 						if(isset($_POST['xembando'])){
 							$thoigian = $_POST['thoigian1'];
-							$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
-    						$select_aqi = "SELECT * FROM $filename_ngay WHERE to_char(\"thoigian\", 'DD/MM/YYYY')='$thoigian'" ; 
+							$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
+    						$select_aqi = "SELECT * FROM $filename_ngay WHERE to_char(\"thoigian\", 'DD/MM/YYYY')='$thoigian'" ;
     						$result = pg_query($conn,"$select_aqi");
     						$test = 0;
     						if($result == true){
@@ -97,9 +97,9 @@ var imageUrl = 'img/son.png',
          [
        [ 10.373897,
    106.679344
-      
+
     ],
-      
+
     ],
         [
       10.743694,

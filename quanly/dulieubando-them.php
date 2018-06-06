@@ -10,7 +10,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form action = "http://localhost/khoaluan/quanly/dulieubando-them-thongbao.php?username=admin" method = "POST" enctype="multipart/form-data">
+	<form action = "http://khoa-luan.local/quanly/dulieubando-them-thongbao.php?username=admin" method = "POST" enctype="multipart/form-data">
 		<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog">
 					<!-- Modal content-->
@@ -18,7 +18,7 @@
 						<div class="modal-header">
 							<div class="row">
 								<div class="col-md-12">
-									<a  class="close" href="http://localhost/khoaluan/quanly/dashboard.php?username=admin&active=dulieubando">&times;</a>
+									<a  class="close" href="http://khoa-luan.local/quanly/dashboard.php?username=admin&active=dulieubando">&times;</a>
 									<h4 class="modal-title" style="padding-left: 200px"> Thêm lớp bản đồ  </h4>
 								</div>
 							</div>
@@ -78,7 +78,7 @@
 									<input type="text" name="left" class="form-control">
 								</div>
 							</div> <!-- left -->
-							
+
 							<div class="row form-group">
 								<div class="col-md-4">
 									<p><b>Right: </b></p>
@@ -94,7 +94,7 @@
 						<div class="modal-footer">
 							<input type="submit" value="Thêm" class="btn btn-success" name="them" >
 
-							<a class="btn btn-default" href="http://localhost/khoaluan/quanly/dashboard.php?username=admin&active=dulieubando"> Hủy</a>
+							<a class="btn btn-default" href="http://khoa-luan.local/quanly/dashboard.php?username=admin&active=dulieubando"> Hủy</a>
 						</div> <!-- end footer -->
 
 					</div> <!-- end content -->

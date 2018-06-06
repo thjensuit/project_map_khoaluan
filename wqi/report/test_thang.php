@@ -25,7 +25,7 @@
      $tentaikhoan = '';
     if(isset($_GET['username'])){
     $tentaikhoan = $_GET['username'];
-    } 
+    }
 	$date = "";
 	if(isset($_POST['ngay_option']) && isset($_POST['thang_option']) &&isset($_POST['nam_option']) ){
 		$ngay = $_POST['ngay_option'];
@@ -44,16 +44,16 @@
             $ngay1 = $ngay;
         }
 		$date=  $nam."/".$thang1."/".$ngay1;
-		
+
 		$thang_tb = $nam."/".$thang1;
-		
+
 	}
-	$conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+	$conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
 	$filename ="";
 	if(isset($_GET['filename'])){
 		$filename = $_GET['filename'];
 		$filename_thang = $_GET['filename']."_thang";
-		
+
 	}
 	?>
 	<div class="container">
@@ -61,7 +61,7 @@
 			<div class="col-md-12" style="padding-left: 300px">
 				<h3><b><?php if(isset($_POST["tieude"])){echo $_POST["tieude"];} ?></b></h3>
 			</div> <!-- tieu de -->
-			
+
 			<div class="col-md-12">
 				<b><h4>Người lập báo cáo :  <?php if(isset($_POST["ten"])){echo $_POST["ten"];} ?></b></h4>
 				<b><h4>Thời gian lập báo cáo : <?php if(isset($_POST["thoigian"])){echo $_POST["thoigian"];} ?></b></h4>
@@ -77,8 +77,8 @@
                                <th>Tọa độ Y</th>
                            </tr>
                            </thead>
-                        
-                          
+
+
                             <?php
                                 $select_data= "SELECT * from $filename_thang where thoigian = '$thang_tb'";
                                 $result = pg_query($conn,"$select_data");
@@ -90,14 +90,14 @@
                                     <td><?php echo $row['x'] ?></td>
                                     <td><?php echo $row['y'] ?></td>
                                   </tr>
-                                <?php     
+                                <?php
                                     }
                                 }
-                            ?>    
-                           
-                         
-                       </table><!-- Thong tin tram --> 
-                </div> 
+                            ?>
+
+
+                       </table><!-- Thong tin tram -->
+                </div>
 
 			<div class="col-md-12" style="margin-top: 50px">
 				<h4 style="margin-bottom:20px;">Kết quả WQI các trạm quan trắc TPHCM <?php echo $thang_tb ?></h4>
@@ -109,12 +109,12 @@
 							<th>WQI Trạm</th>
 							<th>WQI Tiêu Chuẩn</th>
 							<th>Mức đánh giá chất lượng nước</th>
-							<th>Màu quy định</th>					
+							<th>Màu quy định</th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php  
-						
+						<?php
+
 						$select_data= "SELECT * from $filename_thang where thoigian = '$thang_tb'";
 						$result = pg_query($conn,"$select_data");
 						if ($result == true){
@@ -139,7 +139,7 @@
 								}else{
 									$mucdo = "Sử dụng tốt cho mục đích cấp nước sinh hoạt";
 									$mau = "Xanh nước biển";
-								}					
+								}
 
 								?>
 
@@ -163,7 +163,7 @@
 									<td><?php echo $mucdo ?></td>
 									<td><?php echo $mau ?></td>
 
-									<?php  
+									<?php
 								}
 							}
 							?>
@@ -173,24 +173,24 @@
 			</div> <!-- bang ket qua -->
 
 			<div id="container" style="width: 800px; height: 450px;margin-top: 50px ;margin-left: 120px" class="col-md-12"></div>
-			
+
 			<div class="col-md-6 col-md-offset-4">
                 <input type="button" id="print_button"   class="btn btn-success" value="Xuất báo cáo" onclick="window.print()" style="margin-bottom: 70px; margin-top: 70px; " />
-                <a href="http://localhost/khoaluan/wqi/lapbaocao-main.php?username=<?php echo $tentaikhoan ?>&active=lapbaocao&filename=<?php echo $filename ?>" class="btn btn-default" id="quaylai" style="margin-left:40px">Quay lại</a>
+                <a href="http://khoa-luan.local/wqi/lapbaocao-main.php?username=<?php echo $tentaikhoan ?>&active=lapbaocao&filename=<?php echo $filename ?>" class="btn btn-default" id="quaylai" style="margin-left:40px">Quay lại</a>
             </div>
 
 		</div>
 	</div>
-	
-	
+
+
 </body>
 </html>
 <script type="text/javascript">
-    $(function () {    
+    $(function () {
     var defaultTitle = "Biểu đồ WQI các trạm quan trắc TP.HCM tháng <?php echo "$thang_tb"; ?> ";
     var drilldownTitle = "Biểu đồ WQI thông số trạm ";
     var drilldownTitle_thoigian ="<?php echo " $thang_tb"; ?>";
-    
+
     // Create the chart
     var chart = new Highcharts.Chart({
         chart: {
@@ -241,7 +241,7 @@
         series: [{
         name: 'Trạm',
         colorByPoint: true,
-        data: [<?php  
+        data: [<?php
         $select_data= "SELECT * from $filename_thang where thoigian = '$thang_tb'";
         $result = pg_query($conn,"$select_data");
         if ($result == true){
@@ -254,7 +254,7 @@
                 }else if($row[24]>51 &&$row[24]<=75){
                     $mau = '#ffff33';
                 }else if($row[24]>=76 &&$row[24]<=90) {
-                    $mau = '#5cd65c';  
+                    $mau = '#5cd65c';
                 }else{
                     $mau = '#4db8ff';
                 }
@@ -267,15 +267,15 @@
                     ";
             }
         }
-        ?>] 
+        ?>]
     }],
          drilldown: {
            title: {
         text: 'Biểu đồ WQI thông sôtp.HCM',
         },
         series: [
-        <?php 
-         $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+        <?php
+         $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
         $select_data= "SELECT * from $filename_thang where thoigian = '$thang_tb'";
         $result = pg_query($conn,"$select_data");
        if ($result == true){
@@ -295,18 +295,18 @@
                  ['WQI_Coliform',$row[22]],
                  ['WQI_Doduc',$row[23]]
                  ]
-                 
+
             },";
         }
     }else{
             echo "khong thanh cong";
         }
-     ?>   
+     ?>
         ]
     }
     })
 });
-    
+
 
 
     </script>

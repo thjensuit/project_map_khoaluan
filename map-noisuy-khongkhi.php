@@ -1,6 +1,6 @@
 
 <?php
-        $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+        $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
         $select ="SELECT * from chon_dulieufilebando where chiso ='AQI'";
         $resut=pg_query($conn,"$select");
         $tieude = '';
@@ -22,7 +22,7 @@
  <div id="map1" class="col-md-7;" style="height: 500px;margin-bottom: 20px;"></div>
 <script type="text/javascript">
 	L.mapbox.accessToken = 'pk.eyJ1Ijoid2ViZ2lzIiwiYSI6ImNqMW9qcGFseDAxM3gyd3BpeXI5Z2t4dnoifQ.eupIYbTkAg8_0xqMmXgCJw';
-     var imageUrl ="img/aqi_2014.png";             
+     var imageUrl ="img/aqi_2014.png";
     // This is the trickiest part - you'll need accurate coordinates for the
     // corners of the image. You can find and create appropriate values at
     // http://maps.nypl.org/warper/ or

@@ -10,7 +10,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form action = "http://localhost/khoaluan/quanly/thongtinnv-them-thongbao.php?username=admin" method = "POST">
+	<form action = "http://khoa-luan.local/quanly/thongtinnv-them-thongbao.php?username=admin" method = "POST">
 		<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog">
 					<!-- Modal content-->
@@ -67,7 +67,7 @@
 						<div class="modal-footer">
 							<input type="submit" value="Thêm" class="btn btn-success" name="them" >
 
-							<a class="btn btn-default" href="http://localhost/khoaluan/quanly/dashboard.php?username=admin&active=thongtinnv"> Hủy</a>
+							<a class="btn btn-default" href="http://khoa-luan.local/quanly/dashboard.php?username=admin&active=thongtinnv"> Hủy</a>
 						</div> <!-- end footer -->
 
 					</div> <!-- end content -->

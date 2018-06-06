@@ -1,10 +1,10 @@
 
-<?php 
+<?php
          if(isset($_GET['filename'])){
             $filename_h = $_GET['filename'];
 			$filename_ngay = $_GET['filename'].'_ngay';
 		}
-         $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+         $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
  ?>
  <style type="text/css">
     .map { position:absolute; top:0; bottom:0; width:100%; }
@@ -61,7 +61,7 @@
 										<option value="<?php echo $row[0]; ?>"><?php echo "Ngày $row[0]"; ?></option>
 										<?php
 									}
-								} 
+								}
 								?>
 							</select>
 					</div> <!-- option ngay -->
@@ -75,10 +75,10 @@
 							if($result_thang ==true){
 								while($row =pg_fetch_array($result_thang)){
 									?>
-									<option value="<?php echo $row[0]; ?>"><?php echo "Tháng $row[0]"; ?></option>	
+									<option value="<?php echo $row[0]; ?>"><?php echo "Tháng $row[0]"; ?></option>
 									<?php
 								}
-							} 
+							}
 							?>
 						</select>
 					</div> <!-- option thang -->
@@ -95,7 +95,7 @@
 									<option value="<?php echo $row[0]; ?>"><?php echo "Năm $row[0]"; ?></option>
 									<?php
 								}
-							} 
+							}
 							?>
 						</select>
 					</div><!-- option nam -->
@@ -104,7 +104,7 @@
 					</div>
 				</div>
 			</div> <!-- option -->
-			
+
 
 			<div class="col-md-7 pull-left">
 				<?php
@@ -125,7 +125,7 @@
 			}
 			$date =$nam."/".$thang1."/".$ngay1;
 			$thang_tb = $nam."/".$thang1;
-			
+
 			if($ngay!='chonngay'&& $thang!='chonthang'&& $nam!='chonnam'){
 				require("map-thoigian.php");
 			}else{
@@ -136,7 +136,7 @@
 		}
 		 ?>
 			</div> <!-- map -->
-			
+
 
 		</form>
 		</div>

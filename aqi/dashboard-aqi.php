@@ -10,28 +10,28 @@
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
    <meta name="viewport" content="width=device-width" />
    <!-- Bootstrap core CSS     -->
-   
+
    <!--  Light Bootstrap Table core CSS    -->
    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   
 
-  
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
    <!-- js && css mapbox -->
 <script src='https://api.mapbox.com/mapbox.js/v3.1.0/mapbox.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/v3.1.0/mapbox.css' rel='stylesheet' />
-    
+
 
    <!--     Fonts and icons     -->
    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-   
+
    <style type="text/css">
-  
+
     .navbar .navbar-brand {
       font-weight: 600;
       margin: 5px 0px;
@@ -58,13 +58,13 @@
 #thongtin a:hover{
   color: red;
 }
-    
+
 </style>
 
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
-   
+
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
 
@@ -112,7 +112,7 @@
                     <a href="dashboard-aqi.php?username=<?php echo $tentaikhoan ?>&active=aqigio&&filename=<?php
                 if(isset($_GET['filename'])){
                     echo $_GET['filename'];
-            } 
+            }
             ?>">
                         <i class="pe-7s-note"></i>
                         <p>Chỉ số AQI giờ</p>
@@ -123,7 +123,7 @@
                     <a href="dashboard-aqi.php?username=<?php echo $tentaikhoan ?>&active=aqingay&&filename=<?php
                 if(isset($_GET['filename'])){
                     echo $_GET['filename'];
-            } 
+            }
             ?>">
                         <i class="pe-7s-note2"></i>
                         <p>Chỉ số AQI ngày</p>
@@ -134,7 +134,7 @@
                     <a href="dashboard-aqi.php?username=<?php echo $tentaikhoan ?>&active=bieudoaqi&&filename=<?php
                 if(isset($_GET['filename'])){
                     echo $_GET['filename'];
-            } 
+            }
             ?>">
                         <i class="pe-7s-graph1"></i>
                         <p>Xem biểu đồ</p>
@@ -145,7 +145,7 @@
                     <a href="dashboard-aqi.php?username=<?php echo $tentaikhoan ?>&active=bando&&filename=<?php
                 if(isset($_GET['filename'])){
                     echo $_GET['filename'];
-            } 
+            }
             ?>">
                        <i class="pe-7s-map-marker"></i>
                         <p>Xem bản đồ</p>
@@ -153,10 +153,10 @@
                 </li> <!-- xemban do -->
 
                  <li>
-                    <a href="http://localhost/khoaluan/aqi/lapbaocao-main.php?username=<?php echo $tentaikhoan ?>&active=lapbaocao&&filename=<?php
+                    <a href="http://khoa-luan.local/aqi/lapbaocao-main.php?username=<?php echo $tentaikhoan ?>&active=lapbaocao&&filename=<?php
                 if(isset($_GET['filename'])){
                     echo $_GET['filename'];
-            } 
+            }
             ?>">
                         <i class="pe-7s-copy-file"></i>
                         <p>Lập báo cáo</p>
@@ -215,7 +215,7 @@
                               <?php echo $tentaikhoan ; ?> </span></h4>
                         </li>
                         <li>
-                            <a href="http://localhost/khoaluan/index.php" style="font-weight: 600">
+                            <a href="http://khoa-luan.local/index.php" style="font-weight: 600">
                                 Thoát
                             </a>
                         </li>
@@ -228,8 +228,8 @@
         <div class="content"  > <!-- begin content -->
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12"> 
-                     <?php 
+                    <div class="col-md-12">
+                     <?php
                      // if(isset($_GET['active'])){
                      //    if ($_GET['active']=='dulieudauvao') {
                      //        require("history_aqi_new.php");
@@ -304,9 +304,9 @@
                               ?>
                               <script type="text/javascript">
                                 alert("Bạn chưa chọn dữ liệu đầu vào !");
-                              </script>     
+                              </script>
                               <?php
-    
+
                             }
                       		}
                       	}
@@ -322,15 +322,15 @@
                           }else{
                             require("map-main.php");
                           }
-                     	
+
                      }
                     }
                   }else{
                       require("test.php");
                     }
                     ?>
-                    </div> 
-                   
+                    </div>
+
                 </div>
             </div>
         </div> <!-- end content -->
@@ -354,7 +354,7 @@
 
 </body>
 
-    
+
 
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>

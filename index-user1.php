@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <title>Thái Sơn - Home</title>
-  
+
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -30,16 +30,16 @@
 }
 
 #social:hover {
-    -webkit-transform:scale(1.0); 
+    -webkit-transform:scale(1.0);
 }
 #social {
 -webkit-transform:scale(0.8);
                 /* Browser Variations: */
--webkit-transition-duration: 0.5s; 
+-webkit-transition-duration: 0.5s;
 
-            }           
-/* 
-    Only Needed in Multi-Coloured Variation 
+            }
+/*
+    Only Needed in Multi-Coloured Variation
                                                */
 .social-fb:hover {
                 color: #3B5998;}
@@ -53,14 +53,14 @@
 .item_sidebar{
   -webkit-transform:scale(1);
                 /* Browser Variations: */
--webkit-transition-duration: 0.03s; 
+-webkit-transition-duration: 0.03s;
 }
 .item_sidebar:hover{
    -webkit-transform:scale(1.05);
 }
 
 input #matkhau{
-	
+
 }
 </style>
 
@@ -71,26 +71,26 @@ input #matkhau{
 	$tentaikhoan = '';
 	if(isset($_GET['username'])){
 		$tentaikhoan = $_GET['username'];
-	} 
+	}
 ?>
 <div id="container">
 
 	<div class="container" style="background-color: white"> <!-- begin content -->
-		<header><!-- begin header -->       
+		<header><!-- begin header -->
 			<div class="">
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="pull-left" style="">
 							<img src="img/logo.png" style="padding-bottom: 10px ;padding-top: 5px;padding-left: 20px;height:70px; ">
-						</div>            
-						
+						</div>
+
 							<div class="col-md-3 col-md-offset-8" >
 							<h4 style="padding-top: 10px"><span class="glyphicon glyphicon-user" aria-hidden="true">
-								<?php echo $tentaikhoan ; ?> <a href="http://localhost/khoaluan/index.php" class="btn btn-default" style="margin-bottom: 5px">Thoát</a> </span></h4>
-							
-								
+								<?php echo $tentaikhoan ; ?> <a href="http://khoa-luan.local/index.php" class="btn btn-default" style="margin-bottom: 5px">Thoát</a> </span></h4>
+
+
 							</div>
-						
+
 					</div>
 				</div>
 			</div>
@@ -107,7 +107,7 @@ input #matkhau{
 		</div>  <!-- End .slide -->
 
 
- 
+
 		<div class="menu row" style="background:/*#026A52 */	 /*#ff8533*/#1373af ; "><!-- Begin menu -->
 			<div class="col-sm-6 col-sm-offset-3">
 				<ul>
@@ -128,7 +128,7 @@ input #matkhau{
 						</p></li>
 					</ul>
 				</div>
-				
+
 
 				<div class="col-sm-12" style="padding-bottom:25px;" >
 					<div class="row">
@@ -183,19 +183,19 @@ input #matkhau{
 										<td style="background: red"> Màu đỏ</td>
 									</tr>
 								</tbody>
-							</table>	
+							</table>
 						</div>
 						<div class="col-sm-6 pull-right"><p style="font-style: italic; font-size: 13px">(Theo tổng cục môi trường quy định)</p></div>
-						
+
 						<div class="col-md-7 col-md-offset-2" style="margin-top: 20px">
 							<?php require("map-noisuy-nuoc.php") ?>
 						</div> <!-- map nước -->
-						
+
 						<div class="col-sm-12">
 						<div class="col-sm-6 col-sm-offset-1" style="font-size: 16px; font-weight: bold"><span class="glyphicon glyphicon glyphicon-hand-right" aria-hidden="true"></span> Xem tài liệu hướng dẫn tính toán chỉ số WQI <b><a href="http://www.quantracmoitruong.gov.vn/portals/0/PP%20Tinh%20WQI.pdf">Tại đây</a></b></div>
 						</div>
 
-					</div> 
+					</div>
 				</div><!-- end wqi -->
 
 					<div class="col-sm-12" style="padding-bottom:25px;border:1px solid #f5f5f0">
@@ -209,7 +209,7 @@ input #matkhau{
 							<p style="padding-top: 15px; font-size:16.5px">Chỉ số chất lượng không khí (viết tắt là AQI) là chỉ số được tính toán từ các thông số quan trắc cácchất ô nhiễm trong không khí, nhằm cho biết tìnhtrạng chất lượng không khí và mức độ ảnh hưởngđến sức khỏe con người, được biểu diễn qua một thang điểm.</p>
 						</div>
 						<div class="row">
-					
+
 							<div class="col-sm-10 col-sm-offset-1"><h3 style="color:#cc3300; font-weight: bold;" >Mức đánh giá chất lượng môi trường không khí theo AQI</h3></div>
 							<div class="col-sm-8 col-sm-offset-2">
 								<table class="table table-bordered table-str">
@@ -253,7 +253,7 @@ input #matkhau{
 											<td style="background: #996600"> Màu nâu</td>
 										</tr>
 									</tbody>
-								</table>	
+								</table>
 							</div>
 							<div class="col-sm-6 pull-right"><p style="font-style: italic; font-size: 13px">(Theo tổng cục môi trường quy định)</p></div>
 						</div>
@@ -302,8 +302,8 @@ input #matkhau{
 	</div> <!-- end container -->
 	</div>
 
-	
-	
+
+
 	<script type="text/javascript">
 		$(document).ready(function(){
 
@@ -325,7 +325,7 @@ input #matkhau{
 	<script>
 		$(document).ready(function(){
   // Add scrollspy to <body>
-  $('body').scrollspy({target: ".diachi", offset: 50});   
+  $('body').scrollspy({target: ".diachi", offset: 50});
 
   // Add smooth scrolling on all links inside the navbar
   $(".diachi a").on('click', function(event) {

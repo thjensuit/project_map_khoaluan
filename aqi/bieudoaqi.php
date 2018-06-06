@@ -1,9 +1,9 @@
-<?php 
+<?php
          if(isset($_GET['filename'])){
             $filename_h = $_GET['filename'];
 			$filename_ngay = $_GET['filename'].'_ngay';
 		}
-         $conn = pg_connect("host=localhost port=5432 dbname=test user=postgres password=tranthaison");
+         $conn = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=admin");
  ?>
 <div class="card" style="height: 600px">
 	<div class="header">
@@ -24,7 +24,7 @@
 								<option value="<?php echo $row[0]; ?>"><?php echo "Ngày $row[0]"; ?></option>
 								<?php
 							}
-						} 
+						}
 						?>
 					</select>
 				</div> <!-- ngay -->
@@ -41,7 +41,7 @@
 								<option value="<?php echo $row[0]; ?>"><?php echo "Tháng $row[0]"; ?></option>
 								<?php
 							}
-						} 
+						}
 						?>
 					</select>
 				</div> <!-- thang -->
@@ -58,7 +58,7 @@
 								<option value="<?php echo $row[0]; ?>"><?php echo "Năm $row[0]"; ?></option>
 								<?php
 							}
-						} 
+						}
 						?>
 					</select>
 				</div> <!-- nam -->
@@ -75,7 +75,7 @@
 								<option value="<?php echo $row[0]; ?>"><?php echo "Trạm $row[0]"; ?></option>
 								<?php
 							}
-						} 
+						}
 						?>
 					</select>
 				</div>
@@ -95,7 +95,7 @@
 			if($ngay<=10){
 				$ngay1 ="0".$_POST['ngay_option'];
 			}else{
-			$ngay1 =$ngay;	
+			$ngay1 =$ngay;
 			}
 			if($thang<=10){
 				$thang1 ="0".$_POST['thang_option'];
@@ -117,7 +117,7 @@
 				<?php
 			}
 
-		} 
+		}
 		 ?>
-	
+
 </div>
