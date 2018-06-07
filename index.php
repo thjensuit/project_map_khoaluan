@@ -292,9 +292,9 @@
 					<div class="col-sm-4 pull-right" style="color: #fff">
 						<ul>
 							<li style=" margin-top: 18px;font-size: 15px"><span class="glyphicon glyphicon-edit"></span> Thiết kế Web</li>
-							<li style="font-style: italic  ">Trần Thái Sơn-1317217</li>
+							<li style="font-style: italic  ">Trần Khoa luan-1317217</li>
 							<li>
-								&copy; 2017 <a href="">Thái Sơn</a>, Hỗ trợ tốt nhất cho bạn
+								&copy; 2017 <a href="">Khoa luan</a>, Hỗ trợ tốt nhất cho bạn
 							</li>
 						</ul>
 					</div>

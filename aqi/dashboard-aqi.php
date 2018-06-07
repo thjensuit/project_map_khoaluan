@@ -5,7 +5,7 @@
    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-   <title>Thái Sơn</title>
+   <title>Khoa luan</title>
 
    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
    <meta name="viewport" content="width=device-width" />
@@ -343,7 +343,7 @@
                     </ul>
                 </nav>
                 <p class="copyright pull-right">
-                    &copy; 2017 <a href="#">Thái Sơn</a>, Hỗ trợ tốt nhất cho bạn
+                    &copy; 2017 <a href="#">Khoa luan</a>, Hỗ trợ tốt nhất cho bạn
                 </p>
             </div>
         </footer> <!-- End footer -->
@@ -372,7 +372,7 @@
 
             $.notify({
                 icon: 'pe-7s-info',
-                message: "Xin chào, <b>Thái sơn</b>"
+                message: "Xin chào, <b>Khoa luan</b>"
 
             },{
                 type: 'info',

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <title>Thái Sơn</title>
+  <title>Khoa luan</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -25,13 +25,13 @@
 
 	<div class="container"> <!-- begin content -->
 
-		<header><!-- begin header -->       
+		<header><!-- begin header -->
 			<div class="">
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="pull-left" style="">
 							<img src="img/logo.png" style="padding-bottom: 10px ;padding-top: 5px;padding-left: 20px;height:70px; ">
-						</div>            
+						</div>
 						<div class="pull-right">
 							<form class="form-inline">
 								<div class="form-group">
@@ -99,7 +99,7 @@
 					} ?>" class="item_sidebar">Vẽ biểu đồ</a>
 						</li>
 						<li><a href="index1.php?active=xembando&&filenames=
-						<?php 
+						<?php
 						if(isset($_GET['filenames'])){
 						if ($_GET['filenames']!='') {
 							echo $_GET['filenames'];				}
@@ -115,7 +115,7 @@
 				<?php
 					if(isset($_GET['active'])){
 						if ($_GET['active']=='dulieudauvao') {
-							require("history_wqi.php");						
+							require("history_wqi.php");
 						}elseif ($_GET['active']=='wqithongso') {
 							if(isset($_GET['filenames'])){
 								if ($_GET['filenames']==''){
@@ -123,14 +123,14 @@
 						<script type="text/javascript">
 							alert("<?php echo'Bạn chưa chọn dữ liệu đầu vào' ?>")
 						</script>
-				<?php				
+				<?php
 								}else{
 								require("wqi_thongso.php");	}
 							}
 							?>
 
 							<?php
-							
+
 						}elseif ($_GET['active']=='wqitram') {
 							if(isset($_GET['filenames'])){
 								if ($_GET['filenames']==''){
@@ -143,9 +143,9 @@
 									require("wqi_tram.php");
 								}
 							}
-								
+
 						}elseif ($_GET['active']=='dulieuuser') {
-							require("dulieu_user.php");	
+							require("dulieu_user.php");
 						}elseif($_GET['active']=='vebieudo'){
 							if(isset($_GET['filenames'])){
 								if ($_GET['filenames']==''){
@@ -153,7 +153,7 @@
 						<script type="text/javascript">
 							alert("<?php echo'Bạn chưa chọn dữ liệu đầu vào' ?>");
 						</script>
-						<?php			
+						<?php
 								}else{
 										require("bieudo.php");
 								}
@@ -165,17 +165,17 @@
 						<script type="text/javascript">
 							alert("<?php echo'Bạn chưa chọn dữ liệu đầu vào' ?>");
 						</script>
-						<?php			
+						<?php
 								}else{
 										require("map.php");
-										
+
 								}
 							}
 						}
 					}else{
 						require("formdulieuwqi.php");
 					}
-					
+
 				 ?>
 			</div>
 		</div>
@@ -194,14 +194,14 @@
 					</li>
 					<li style="margin-left: 55px; color:#4d004d">Hoặc</li>
 				</ul>
-				<a id="link" href="" style="margin-left: 10px;padding-bottom:10px">http://localhost/qe_new/qe/demo.html</a>		
+				<a id="link" href="" style="margin-left: 10px;padding-bottom:10px">http://localhost/qe_new/qe/demo.html</a>
 			</div>
 			<div class="Diachi col-sm-4 col-sm-offset-1">
 				<ul style="margin-left: 20px; color: 	  #4d004d">
 					<li style="margin-left: 22px; margin-top: 18px; font-size: 14px"><span class="glyphicon glyphicon-home"></span> Trường Đại Học Khoa Học Tự Nhiên </li>
 					<li style="margin-top: 5px;margin-left: 30px; font-style: italic ">227-Nguyễn Văn Cừ - Q5.TPHCM</li>
 					<li style="margin-top: 10px;margin-left: 22px; font-size: 15px"><span class="glyphicon glyphicon-edit"></span> Thiết kế Web</li>
-					<li style="margin-top: 5px;margin-left: 20px;font-style: italic  ">Trần Thái Sơn-1317217</li>
+					<li style="margin-top: 5px;margin-left: 20px;font-style: italic  ">Trần Khoa luan-1317217</li>
 				</ul>
 			</div>
 
